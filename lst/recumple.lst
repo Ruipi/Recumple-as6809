@@ -17,41 +17,37 @@ Hexidecimal [16-Bits]
                              12 
    0100                      13   .org 0x100
                              14   .globl presentation
-                             15   .globl daa
-                             16 
-   0100 19 06                17 aNo:    .word 0x1906 	        ; Año de nacimiento (BCD) 
-   0102 00 07                18 mes:	.word 0x7 		; Mes de nacimiento (BCD) 
-   0104 00 27                19 dia:	.word 0x27 		; Dia de nacimiento (BCD)
-   0106 0A                   20 Ncumples:	.byte 10 	; Numero de Recumples a calcular
-                             21 
-   0107                      22 programa:
-   0107 10 CE F0 00   [ 4]   23   lds #0xF000 
-   010B BD 00 00      [ 8]   24   jsr presentation	
-                             25 
-   010E                      26 aNoValido:
+                             15   .globl condicion_Ncumples
+                             16   .globl daa
+                             17   .globl acabar
+                             18 
+   0100 19 06                19 aNo:    .word 0x1906 	        ; Año de nacimiento (BCD) 
+   0102 00 07                20 mes:	.word 0x7 		; Mes de nacimiento (BCD) 
+   0104 00 27                21 dia:	.word 0x27 		; Dia de nacimiento (BCD)
+   0106 54                   22 Ncumples:	.byte 0x54 	; Numero de Recumples a calcular
+                             23 
+   0107                      24 programa:
+   0107 10 CE F0 00   [ 4]   25   lds #0xF000 
+   010B BD 00 00      [ 8]   26   jsr presentation	
                              27 
-                             28 
-   010E                      29 NcumplesValido:
-                             30 
+   010E                      28 condiciones:
+   010E B6 01 06      [ 5]   29   lda Ncumples
+   0111 BD 00 00      [ 8]   30   jsr condicion_Ncumples
                              31 
-   010E                      32 tipoaNo:
-                             33 
-                             34 
-   010E                      35 mes31:
+   0114                      32 mes31:
+   0114 86 36         [ 2]   33   lda #54
+   0116 B7 FF 00      [ 5]   34   sta 0xFF00
+   0119                      35 mes30:
                              36 
-                             37 
-   010E                      38 mes30:
-                             39 
-                             40 
-   010E                      41 febrero:
+   0119                      37 febrero:
+                             38 
+   0119                      39 acabar: 
+   0119 4F            [ 2]   40   clra
+   011A B7 FF 01      [ 5]   41   sta 0xFF01
                              42 
-   010E                      43 acabar: 
-   010E 4F            [ 2]   44   clra
-   010F B7 FF 01      [ 5]   45   sta 0xFF01
-                             46 
-   FFFE                      47   .org 0xFFFE
-   FFFE 01 07                48   .word programa
-                             49 
+   FFFE                      43   .org 0xFFFE
+   FFFE 01 07                44   .word programa
+                             45 
 ASxxxx Assembler V05.00  (Motorola 6809), page 2.
 Hexidecimal [16-Bits]
 
@@ -59,13 +55,13 @@ Symbol Table
 
     .__.$$$.       =   2710 L   |     .__.ABS.       =   0000 G
     .__.CPU.       =   0000 L   |     .__.H$L.       =   0001 L
-  2 Ncumples           0106 R   |   2 NcumplesValido     010E R
-  2 aNo                0100 R   |   2 aNoValido          010E R
-  2 acabar             010E R   |     daa                **** GX
-  2 dia                0104 R   |   2 febrero            010E R
-  2 mes                0102 R   |   2 mes30              010E R
-  2 mes31              010E R   |     presentation       **** GX
-  2 programa           0107 R   |   2 tipoaNo            010E R
+  2 Ncumples           0106 R   |   2 aNo                0100 R
+  2 acabar             0119 GR  |     condicion_Ncum     **** GX
+  2 condiciones        010E R   |     daa                **** GX
+  2 dia                0104 R   |   2 febrero            0119 R
+  2 mes                0102 R   |   2 mes30              0119 R
+  2 mes31              0114 R   |     presentation       **** GX
+  2 programa           0107 R
 
 ASxxxx Assembler V05.00  (Motorola 6809), page 3.
 Hexidecimal [16-Bits]

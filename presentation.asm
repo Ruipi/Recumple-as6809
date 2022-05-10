@@ -7,7 +7,6 @@
 
   .globl presentation_str
   .globl presentation
-  .globl presentation
 
 presentation_str:
   .ascii "+-----------------------------------------+\n"
