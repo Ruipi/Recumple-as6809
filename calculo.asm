@@ -1,44 +1,43 @@
+	.module calculo
 
-  ; +-----------------------------------------+
-  ; |       Subrutinas para el calculo        |
-  ; +-----------------------------------------+
+	.globl acabar
+	.globl comprobar_bisiesto
 
-  .module calculo
+	.globl Ncumples
+	.globl aNo
+	.globl dia
+	.globl mes
 
-  .globl acabar
-  .globl condicion_Ncumples
-  .globl condicion_aNo
-  .globl comprobar_bisiesto
+sumar_iteracion:
+	lda 0x80
+	inca
+	sta 0x80
 
-  .globl Ncumples
-  .globl aNo
+guardar_Pila:
+	pshs aNo,pcr
+	pshs mes,pcr
+	pshs dia,pcr
 
-condicion_Ncumples:
-  lda Ncumples
-  cmpa #0x01
-  blt acabar
-  cmpa #0x30
-  bgt acabar
-  rts
+sacar_Pila:
+	puls dia,pcr
+	puls mes,pcr
+	puls aNo,pcr
 
-condicion_aNo:
-  ldd aNo
-  cmpd #0x1920
-  blt acabar
-  cmpd #0x2050
-  bgt acabar
-  rts
+sumar_anio:
+	ldd aNo,pcr
+	addd 0x80
 
 comprobar_bisiesto:
-  ldd aNo
-  tfr b,a
-  anda #1
-  cmpa #0x00
-  bne no_bisiesto
-  tfr b,a
-  lsra
-  anda #1
-  cmpa #0x00
-  bne no_bisiesto
+	ldd aNo,pcr
+	tfr b,a
+	anda #1
+	cmpa #0x00
+	bne no_bisiesto
+	tfr b,a
+	lsra
+	anda #1
+	cmpa #0x00
+	bne no_bisiesto
 
 no_bisiesto:
+	
