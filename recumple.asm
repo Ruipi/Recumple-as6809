@@ -15,9 +15,10 @@
   .globl acabar
   .globl condicion_Ncumples
   .globl condicion_aNo
+  .globl comprobar_bisiesto
   .globl daa
 
-aNo:    .word 0x1986 	        ; Año de nacimiento (BCD) 
+aNo:    .word 0x1976 	        ; Año de nacimiento (BCD) 
 mes:	.word 0x7 		; Mes de nacimiento (BCD) 
 dia:	.word 0x27 		; Dia de nacimiento (BCD)
 Ncumples:	.byte 0x10 	; Numero de Recumples a calcular
@@ -26,7 +27,7 @@ Ncumples:	.byte 0x10 	; Numero de Recumples a calcular
   .globl aNo
 
 programa:
-  lds #0xF000 
+  lds #0xF000
   jsr presentation	
 
 condiciones:
@@ -34,7 +35,7 @@ condiciones:
   jsr condicion_aNo
 
 mes31:
-
+  
 mes30:
 
 febrero:
