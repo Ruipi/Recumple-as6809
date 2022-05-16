@@ -35,6 +35,7 @@ bucle_n_cumple:
 	bsr comprobar_mes
 	bsr suma_dia
 	bsr comprobar_dia
+	;daa
 	;bsr presentar
 	bsr sumar_iteracion
 	lda 0x80
