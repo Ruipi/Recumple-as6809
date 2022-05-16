@@ -13,6 +13,8 @@
 	.globl comprobar_dia
 	.globl suma_dia
 	.globl sumar_iteracion
+	.globl sacar_pila
+	.globl poner_pila
     .globl daa
     .globl aNo
     .globl mes
@@ -28,8 +30,11 @@ programa:
 	lds #0xF000
 	lda #0
 	sta 0x80
+	bsr poner_pila
 
 bucle_n_cumple:
+	bsr sacar_pila
+	bsr poner_pila
 	bsr sumar_anio
 	bsr sumar_mes
 	bsr comprobar_mes
