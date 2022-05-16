@@ -15,14 +15,21 @@
     .globl Ncumples
 
 aNo:            .word 0x1976 	; Año de nacimiento (BCD) 
-mes:    	.word 0x7 	; Mes de nacimiento (BCD) 
+mes:	    	.word 0x7 	; Mes de nacimiento (BCD) 
 dia:	        .word 0x27 	; Dia de nacimiento (BCD)
 Ncumples:     	.byte 0x10 	; Numero de Recumples a calcular
 
 programa:
-  lds #0xF000
-  lda #1
-  sta 0x80
+	lds #0xF000
+	lda #0
+	sta 0x80
+	bsr poner_pila
+	bsr sumar_anio
+	bsr sumar_mes
+	bsr comprobar_mes
+	bsr suma_dia
+	bsr comprobar_dia
+	
 
 acabar: 
   clra
