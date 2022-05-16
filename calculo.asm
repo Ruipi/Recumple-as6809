@@ -139,8 +139,22 @@ comprobar_bisiesto:
 	anda #1
 	cmpa #0x00
 	bne no_bisiesto
-
+	lda dia,pcr
+	ldb mes,pcr
+	cmpa #0x1D	 		;COMPARA DIA CON 29
+	bls no_suma_mes
+	suba #0x1D
+	addb #0x01
+	sta dia,pcr
+	stb mes,pcr
+	
 no_bisiesto:
+	lda dia,pcr
+	ldb mes,pcr
+	suba #0x1C
+	addb #0x01
+	sta dia,pcr
+	stb mes,pcr
 
 sumar_mes:
 	lda mes,pcr
@@ -150,7 +164,7 @@ sumar_mes:
 comprobar_mes:
 	lda mes,pcr
 	suba #0xB
-	blo no_suma_anio
+	bls no_suma_anio
 	ldb aNo,pcr
 	addb #0x1
 	sta mes,pcr
@@ -158,6 +172,44 @@ comprobar_mes:
 
 no_suma_anio:
 
+suma_dia:
+	lda dia,pcr
+	adda 0x80
+	sta dia,pcr
+
+comprobar_dia:
+	lda dia,pcr
+	ldb mes,pcr
+	cmpa #0x1C 		;COMPARA EL DIA CON 28
+	bls no_suma_mes
+	cmpb #0x02
+	beq comprobar_bisiesto
+	cmpa #0x1E		;COMPARA EL DIA CON 30
+	bls no_suma_mes
+	cmpb #0x04
+	beq rest_30_sum_mes
+	cmpb #0x06
+	beq rest_30_sum_mes
+	cmpb #0x09
+	beq rest_30_sum_mes
+	cmpb #0xB
+	beq rest_30_sum_mes
+	cmpa #0x1F		;COMPARA EL DIA COM 31
+	bls no_suma_mes
+	suba #0x1F
+	addb #0x01
+	sta dia,pcr
+	stb mes,pcr
+
+
+rest_30_sum_mes:
+	suba #0x1E
+	addb #0x01
+	sta dia,pcr
+	stb mes,pcr
+	
+
+no_suma_mes:
 
 regresar:
   	rts
