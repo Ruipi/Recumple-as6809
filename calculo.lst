@@ -1,0 +1,298 @@
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 1
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+
+
+                              1 
+                              2 
+                              3 	.module calculo
+                              4 
+                              5 	.globl acabar
+                              6 	.globl mostrarMes
+                              7 	.globl comprobar_bisiesto
+                              8 	.globl sumar_anio
+                              9 	.globl sumar_mes
+                             10 	.globl comprobar_mes
+                             11 	.globl comprobar_dia
+                             12 	.globl suma_dia
+                             13 	.globl sumar_iteracion
+                             14 	.globl sacar_pila
+                             15 	.globl poner_pila
+                             16 
+                             17 	.globl Ncumples
+                             18 	.globl aNo
+                             19 	.globl dia
+                             20 	.globl mes
+                             21 
+   0000 65 6E 65 72 6F 00    22 enero_str:      .asciz "enero"
+   0006 66 65 62 72 65 72    23 febrero_str:    .asciz "febrero"
+        6F 00
+   000E 6D 61 72 7A 6F 00    24 marzo_str:      .asciz "marzo"
+   0014 61 62 72 69 6C 00    25 abril_str:      .asciz "abril"
+   001A 6D 61 79 6F 00       26 mayo_str:       .asciz "mayo"
+   001F 6A 75 6E 69 6F 00    27 junio_str:      .asciz "junio"
+   0025 6A 75 6C 69 6F 00    28 julio_str:      .asciz "julio"
+   002B 61 67 6F 73 74 6F    29 agosto_str:     .asciz "agosto"
+        00
+   0032 73 65 70 74 69 65    30 septiembre_str: .asciz "septiembre"
+        6D 62 72 65 00
+   003D 6F 63 74 75 62 72    31 octubre_str:    .asciz "octubre"
+        65 00
+   0045 6E 6F 76 69 65 6D    32 noviembre_str:  .asciz "noviembre"
+        62 72 65 00
+   004F 64 69 63 69 65 6D    33 diciembre_str:  .asciz "diciembre"
+        62 72 65 00
+                             34 
+   0059                      35 poner_pila:
+   0059 B6 00 00      [ 5]   36 	lda dia
+   005C 36 02         [ 6]   37 	pshu a
+   005E B6 00 00      [ 5]   38 	lda mes
+   0061 36 02         [ 6]   39 	pshu a
+   0063 B6 00 00      [ 5]   40 	lda aNo
+   0066 36 02         [ 6]   41 	pshu a
+   0068 39            [ 5]   42 	rts 
+                             43 
+   0069                      44 sacar_pila:
+   0069 37 02         [ 6]   45 	pulu a
+   006B B7 00 00      [ 5]   46 	sta aNo
+   006E 37 02         [ 6]   47 	pulu a
+   0070 B7 00 00      [ 5]   48 	sta mes
+   0073 37 02         [ 6]   49 	pulu a
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 2
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+
+
+   0075 B7 00 00      [ 5]   50 	sta dia
+   0078 39            [ 5]   51 	rts
+                             52 
+   0079                      53 enero:
+   0079 8E 00 00      [ 3]   54 	ldx #enero_str
+   007C 20 65         [ 3]   55 	bra imprimir
+                             56 
+   007E                      57 febrero:
+   007E 8E 00 06      [ 3]   58 	ldx #febrero_str
+   0081 20 60         [ 3]   59 	bra imprimir
+                             60 
+   0083                      61 marzo:
+   0083 8E 00 0E      [ 3]   62 	ldx #marzo_str
+   0086 20 5B         [ 3]   63 	bra imprimir
+                             64 
+   0088                      65 abril:
+   0088 8E 00 14      [ 3]   66 	ldx #abril_str
+   008B 20 56         [ 3]   67 	bra imprimir
+                             68 
+   008D                      69 mayo:
+   008D 8E 00 1A      [ 3]   70 	ldx #mayo_str
+   0090 20 51         [ 3]   71 	bra imprimir
+                             72 
+   0092                      73 junio:
+   0092 8E 00 1F      [ 3]   74 	ldx #junio_str
+   0095 20 4C         [ 3]   75 	bra imprimir
+                             76 
+   0097                      77 julio:
+   0097 8E 00 25      [ 3]   78 	ldx #julio_str
+   009A 20 47         [ 3]   79 	bra imprimir
+                             80 
+   009C                      81 agosto:
+   009C 8E 00 2B      [ 3]   82 	ldx #agosto_str
+   009F 20 42         [ 3]   83 	bra imprimir
+                             84 
+   00A1                      85 septiembre:
+   00A1 8E 00 32      [ 3]   86 	ldx #septiembre_str
+   00A4 20 3D         [ 3]   87 	bra imprimir
+                             88 
+   00A6                      89 octubre:
+   00A6 8E 00 3D      [ 3]   90 	ldx #octubre_str
+   00A9 20 38         [ 3]   91 	bra imprimir
+                             92 
+   00AB                      93 noviembre:
+   00AB 8E 00 45      [ 3]   94 	ldx #noviembre_str
+   00AE 20 33         [ 3]   95 	bra imprimir
+                             96 
+   00B0                      97 diciembre:
+   00B0 8E 00 4F      [ 3]   98 	ldx #diciembre_str
+   00B3 20 2E         [ 3]   99 	bra imprimir
+                            100 
+   00B5                     101 mostrarMes:
+   00B5 C1 01         [ 2]  102 	cmpb #0x1
+   00B7 27 C0         [ 3]  103 	beq enero
+   00B9 C1 02         [ 2]  104 	cmpb #0x2
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 3
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+
+
+   00BB 27 C1         [ 3]  105 	beq febrero
+   00BD C1 03         [ 2]  106 	cmpb #0x3
+   00BF 27 C2         [ 3]  107 	beq marzo
+   00C1 C1 04         [ 2]  108 	cmpb #0x4
+   00C3 27 C3         [ 3]  109 	beq abril
+   00C5 C1 05         [ 2]  110 	cmpb #0x5
+   00C7 27 C4         [ 3]  111 	beq mayo
+   00C9 C1 06         [ 2]  112 	cmpb #0x6
+   00CB 27 C5         [ 3]  113 	beq junio
+   00CD C1 07         [ 2]  114 	cmpb #0x7
+   00CF 27 C6         [ 3]  115 	beq julio
+   00D1 C1 08         [ 2]  116 	cmpb #0x8
+   00D3 27 C7         [ 3]  117 	beq agosto
+   00D5 C1 09         [ 2]  118 	cmpb #0x9
+   00D7 27 C8         [ 3]  119 	beq septiembre
+   00D9 C1 0A         [ 2]  120 	cmpb #0xA
+   00DB 27 C9         [ 3]  121 	beq octubre
+   00DD C1 0B         [ 2]  122 	cmpb #0xB
+   00DF 27 CA         [ 3]  123 	beq noviembre
+   00E1 20 CD         [ 3]  124 	bra diciembre
+                            125 
+   00E3                     126 imprimir:
+   00E3 A6 80         [ 6]  127 	lda ,x+
+   00E5 10 27 00 B0   [ 6]  128 	lbeq regresar
+   00E9 B7 FF 00      [ 5]  129 	sta 0xFF00
+   00EC 20 F5         [ 3]  130 	bra imprimir
+                            131 
+   00EE                     132 sumar_iteracion:
+   00EE 96 80         [ 4]  133 	lda 0x80
+   00F0 4C            [ 2]  134 	inca
+   00F1 97 80         [ 4]  135 	sta 0x80
+   00F3 39            [ 5]  136 	rts
+                            137 
+   00F4                     138 sumar_anio:
+   00F4 EC 8D 00 00   [10]  139 	ldd aNo,pcr
+   00F8 D3 80         [ 6]  140 	addd 0x80
+   00FA 39            [ 5]  141 	rts
+                            142 
+   00FB                     143 comprobar_bisiesto:
+   00FB FC 00 00      [ 6]  144 	ldd aNo
+   00FE 1F 98         [ 6]  145 	tfr b,a
+   0100 84 01         [ 2]  146 	anda #1
+   0102 81 00         [ 2]  147 	cmpa #0x00
+   0104 26 20         [ 3]  148 	bne no_bisiesto
+   0106 1F 98         [ 6]  149 	tfr b,a
+   0108 44            [ 2]  150 	lsra
+   0109 84 01         [ 2]  151 	anda #1
+   010B 81 00         [ 2]  152 	cmpa #0x00
+   010D 26 17         [ 3]  153 	bne no_bisiesto
+   010F B6 00 00      [ 5]  154 	lda dia
+   0112 F6 00 00      [ 5]  155 	ldb mes
+   0115 81 1D         [ 2]  156 	cmpa #0x1D	 		;COMPARA DIA CON 29
+   0117 10 23 00 7E   [ 6]  157 	lbls regresar 
+   011B 80 1D         [ 2]  158 	suba #0x1D
+   011D CB 01         [ 2]  159 	addb #0x01
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 4
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+
+
+   011F B7 00 00      [ 5]  160 	sta dia
+   0122 F7 00 00      [ 5]  161 	stb mes
+   0125 39            [ 5]  162 	rts
+                            163 	
+   0126                     164 no_bisiesto:
+   0126 B6 00 00      [ 5]  165 	lda dia
+   0129 F6 00 00      [ 5]  166 	ldb mes
+   012C 80 1C         [ 2]  167 	suba #0x1C
+   012E CB 01         [ 2]  168 	addb #0x01
+   0130 B7 00 00      [ 5]  169 	sta dia
+   0133 F7 00 00      [ 5]  170 	stb mes
+   0136 39            [ 5]  171 	rts
+                            172 
+   0137                     173 sumar_mes:
+   0137 B6 00 00      [ 5]  174 	lda mes
+   013A 9B 80         [ 4]  175 	adda 0x80
+   013C B7 00 00      [ 5]  176 	sta mes
+   013F 39            [ 5]  177 	rts
+                            178 
+   0140                     179 comprobar_mes:
+   0140 B6 00 00      [ 5]  180 	lda mes
+   0143 80 0B         [ 2]  181 	suba #0xB
+   0145 23 52         [ 3]  182 	bls regresar 
+   0147 F6 00 00      [ 5]  183 	ldb aNo
+   014A CB 01         [ 2]  184 	addb #0x1
+   014C B7 00 00      [ 5]  185 	sta mes
+   014F F7 00 00      [ 5]  186 	stb aNo
+   0152 39            [ 5]  187 	rts
+                            188 
+   0153                     189 suma_dia:
+   0153 B6 00 00      [ 5]  190 	lda dia
+   0156 9B 80         [ 4]  191 	adda 0x80
+   0158 B7 00 00      [ 5]  192 	sta dia
+                            193 
+   015B                     194 comprobar_dia:
+   015B B6 00 00      [ 5]  195 	lda dia
+   015E F6 00 00      [ 5]  196 	ldb mes
+   0161 81 1C         [ 2]  197 	cmpa #0x1C 		;COMPARA EL DIA CON 28
+   0163 23 34         [ 3]  198 	bls regresar 
+   0165 C1 02         [ 2]  199 	cmpb #0x02
+   0167 10 27 FF 90   [ 6]  200 	lbeq comprobar_bisiesto
+   016B 81 1E         [ 2]  201 	cmpa #0x1E		;COMPARA EL DIA CON 30
+   016D 23 2A         [ 3]  202 	bls regresar 
+   016F C1 04         [ 2]  203 	cmpb #0x04
+   0171 27 1B         [ 3]  204 	beq rest_30_sum_mes
+   0173 C1 06         [ 2]  205 	cmpb #0x06
+   0175 27 17         [ 3]  206 	beq rest_30_sum_mes
+   0177 C1 09         [ 2]  207 	cmpb #0x09
+   0179 27 13         [ 3]  208 	beq rest_30_sum_mes
+   017B C1 0B         [ 2]  209 	cmpb #0xB
+   017D 27 0F         [ 3]  210 	beq rest_30_sum_mes
+   017F 81 1F         [ 2]  211 	cmpa #0x1F		;COMPARA EL DIA COM 31
+   0181 23 16         [ 3]  212 	bls regresar 
+   0183 80 1F         [ 2]  213 	suba #0x1F
+   0185 CB 01         [ 2]  214 	addb #0x01
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 5
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+
+
+   0187 B7 00 00      [ 5]  215 	sta dia
+   018A F7 00 00      [ 5]  216 	stb mes
+   018D 39            [ 5]  217 	rts
+                            218 
+   018E                     219 rest_30_sum_mes:
+   018E 80 1E         [ 2]  220 	suba #0x1E
+   0190 CB 01         [ 2]  221 	addb #0x01
+   0192 B7 00 00      [ 5]  222 	sta dia
+   0195 F7 00 00      [ 5]  223 	stb mes
+   0198 39            [ 5]  224 	rts
+                            225 	
+   0199                     226 regresar:
+   0199 39            [ 5]  227   	rts
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 6
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+Symbol Table
+
+    .__.$$$.       =   2710 L   |     .__.ABS.       =   0000 G
+    .__.CPU.       =   0000 L   |     .__.H$L.       =   0001 L
+    Ncumples           **** GX  |     aNo                **** GX
+  0 abril              0088 R   |   0 abril_str          0014 R
+    acabar             **** GX  |   0 agosto             009C R
+  0 agosto_str         002B R   |   0 comprobar_bisi     00FB GR
+  0 comprobar_dia      015B GR  |   0 comprobar_mes      0140 GR
+    dia                **** GX  |   0 diciembre          00B0 R
+  0 diciembre_str      004F R   |   0 enero              0079 R
+  0 enero_str          0000 R   |   0 febrero            007E R
+  0 febrero_str        0006 R   |   0 imprimir           00E3 R
+  0 julio              0097 R   |   0 julio_str          0025 R
+  0 junio              0092 R   |   0 junio_str          001F R
+  0 marzo              0083 R   |   0 marzo_str          000E R
+  0 mayo               008D R   |   0 mayo_str           001A R
+    mes                **** GX  |   0 mostrarMes         00B5 GR
+  0 no_bisiesto        0126 R   |   0 noviembre          00AB R
+  0 noviembre_str      0045 R   |   0 octubre            00A6 R
+  0 octubre_str        003D R   |   0 poner_pila         0059 GR
+  0 regresar           0199 R   |   0 rest_30_sum_me     018E R
+  0 sacar_pila         0069 GR  |   0 septiembre         00A1 R
+  0 septiembre_str     0032 R   |   0 suma_dia           0153 GR
+  0 sumar_anio         00F4 GR  |   0 sumar_iteracio     00EE GR
+  0 sumar_mes          0137 GR
+
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 7
+Hexadecimal [16-Bits]                                 Mon May 16 22:35:25 2022
+
+Area Table
+
+[_CSEG]
+   0 _CODE            size  19A   flags C180
+[_DSEG]
+   1 _DATA            size    0   flags C0C0
+

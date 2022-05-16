@@ -5,6 +5,14 @@
 	.globl acabar
 	.globl mostrarMes
 	.globl comprobar_bisiesto
+	.globl sumar_anio
+	.globl sumar_mes
+	.globl comprobar_mes
+	.globl comprobar_dia
+	.globl suma_dia
+	.globl sumar_iteracion
+	.globl sacar_pila
+	.globl poner_pila
 
 	.globl Ncumples
 	.globl aNo
@@ -25,21 +33,21 @@ noviembre_str:  .asciz "noviembre"
 diciembre_str:  .asciz "diciembre"
 
 poner_pila:
-	lda dia,pcr
-	pshs a
-	lda mes,pcr
-	pshs a
-	lda aNo,pcr
-	pshs a
+	lda dia
+	pshu a
+	lda mes
+	pshu a
+	lda aNo
+	pshu a
 	rts 
 
 sacar_pila:
-	puls a
-	sta aNo,pcr
-	puls a
-	sta mes,pcr
-	puls a
-	sta dia,pcr
+	pulu a
+	sta aNo
+	pulu a
+	sta mes
+	pulu a
+	sta dia
 	rts
 
 enero:
@@ -117,12 +125,12 @@ mostrarMes:
 
 imprimir:
 	lda ,x+
-	beq regresar
+	lbeq regresar
 	sta 0xFF00
 	bra imprimir
 
 sumar_iteracion:
-	lda 0x80,pcr
+	lda 0x80
 	inca
 	sta 0x80
 	rts
@@ -133,7 +141,7 @@ sumar_anio:
 	rts
 
 comprobar_bisiesto:
-	ldd aNo,pcr
+	ldd aNo
 	tfr b,a
 	anda #1
 	cmpa #0x00
@@ -143,53 +151,53 @@ comprobar_bisiesto:
 	anda #1
 	cmpa #0x00
 	bne no_bisiesto
-	lda dia,pcr
-	ldb mes,pcr
+	lda dia
+	ldb mes
 	cmpa #0x1D	 		;COMPARA DIA CON 29
-	bls	regresar 
+	lbls regresar 
 	suba #0x1D
 	addb #0x01
-	sta dia,pcr
-	stb mes,pcr
+	sta dia
+	stb mes
 	rts
 	
 no_bisiesto:
-	lda dia,pcr
-	ldb mes,pcr
+	lda dia
+	ldb mes
 	suba #0x1C
 	addb #0x01
-	sta dia,pcr
-	stb mes,pcr
+	sta dia
+	stb mes
 	rts
 
 sumar_mes:
-	lda mes,pcr
+	lda mes
 	adda 0x80
-	sta mes,pcr
+	sta mes
 	rts
 
 comprobar_mes:
-	lda mes,pcr
+	lda mes
 	suba #0xB
 	bls regresar 
-	ldb aNo,pcr
+	ldb aNo
 	addb #0x1
-	sta mes,pcr
-	stb aNo,pcr
+	sta mes
+	stb aNo
 	rts
 
 suma_dia:
-	lda dia,pcr
+	lda dia
 	adda 0x80
-	sta dia,pcr
+	sta dia
 
 comprobar_dia:
-	lda dia,pcr
-	ldb mes,pcr
+	lda dia
+	ldb mes
 	cmpa #0x1C 		;COMPARA EL DIA CON 28
 	bls regresar 
 	cmpb #0x02
-	beq comprobar_bisiesto
+	lbeq comprobar_bisiesto
 	cmpa #0x1E		;COMPARA EL DIA CON 30
 	bls regresar 
 	cmpb #0x04
@@ -204,15 +212,15 @@ comprobar_dia:
 	bls regresar 
 	suba #0x1F
 	addb #0x01
-	sta dia,pcr
-	stb mes,pcr
+	sta dia
+	stb mes
 	rts
 
 rest_30_sum_mes:
 	suba #0x1E
 	addb #0x01
-	sta dia,pcr
-	stb mes,pcr
+	sta dia
+	stb mes
 	rts
 	
 regresar:

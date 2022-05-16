@@ -3,7 +3,8 @@
 
     .area PROG (ABS)
 
-    .org 0x150
+    .org 0x250
+	.globl imprime
     .globl acabar
     .globl mostrarMes
     .globl comprobar_bisiesto
@@ -28,24 +29,61 @@ Ncumples:     	.byte 0x10		; Numero de Recumples a calcular
 
 programa:
 	lds #0xF000
+	ldu #0xF100
 	lda #0
 	sta 0x80
-	bsr poner_pila
+	lbsr poner_pila
 
 bucle_n_cumple:
-	bsr sacar_pila
-	bsr poner_pila
-	bsr sumar_anio
-	bsr sumar_mes
-	bsr comprobar_mes
-	bsr suma_dia
-	bsr comprobar_dia
-	;daa
-	;bsr presntar
-	bsr sumar_iteracion
+	lbsr sacar_pila
+	lbsr poner_pila
+	lbsr sumar_anio
+	lbsr sumar_mes
+	lbsr comprobar_mes
+	lbsr suma_dia
+	lbsr comprobar_dia
+
+	lda dia
+	lbsr daa
+	sta dia
+	lbsr imprime
+	lbsr imprime_salto
+	
+	ldb mes
+	lbsr daa
+	stb mes
+	lbsr imprime
+	lbsr imprime_salto
+
+	;0x19XX/20XX -> daa -> sta ultimo XX -> 1900/2000 -> cmp 0x2000 blo 19 -> 20
+	ldd aNo
+	exg a,b
+	lbsr daa
+	sta aNo
+	cmpa #0x20
+	blo imprime_19
+	ldb #20
+	lbsr imprime
+	ldb aNo
+	lbsr imprime
+
+	;bsr presentar
+	lbsr sumar_iteracion
 	lda 0x80
 	cmpa Ncumples
 	bls bucle_n_cumple
+	bra acabar
+
+imprime_19:
+	ldb #19
+	lbsr imprime
+	ldb aNo
+	lbsr imprime
+
+imprime_salto:
+	lda #'\n
+	sta 0xFF00
+	rts
 
 acabar: 
 	clra

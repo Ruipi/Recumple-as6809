@@ -1,14 +1,8 @@
-	.area PROG (ABS)
+	.module imprimir
 
-        ; definimos una constante
-fin     .equ 0xFF01
-pantalla .equ 0xFF00
+	.globl imprime 
 
-	.org 0x100
-
-	.globl programa
-programa:
-	lda #30 ; un nUmero como cualquier otro, para probar
+imprime:
 
 Menor40:
 	lslb
@@ -24,19 +18,16 @@ Menor20:
     suba #10
 Menor10:
 	addb #'0
-    stb pantalla
+    stb 0xFF00 
     adda #'0
-    sta pantalla
+    sta 0xFF00
 
     ; imprimimos un salto de lInea
     ldb #'\n
-    stb pantalla
+    stb 0xFF00
 
     ; el programa acaba
     clra
 
 acabar:
-	sta fin
-
-	.org 0xFFFE	; vector de RESET
-	.word programa
+	rts
