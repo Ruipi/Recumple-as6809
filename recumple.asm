@@ -42,9 +42,9 @@ bucle_n_cumple:
 	bls bucle_n_cumple
 
 acabar: 
-  clra
-  sta 0xFF01
+	clra
+	sta 0xFF01
 
-  .org 0xFFFE
-  .word programa
+	.org 0xFFFE
+	.word programa
 
