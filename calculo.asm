@@ -1,9 +1,10 @@
 
-        .module calculo
+
+	.module calculo
 
 	.globl acabar
-        .globl mostrarMes
-        .globl comprobar_bisiesto
+	.globl mostrarMes
+	.globl comprobar_bisiesto
 
 	.globl Ncumples
 	.globl aNo
@@ -22,6 +23,22 @@ septiembre_str: .asciz "septiembre"
 octubre_str:    .asciz "octubre"
 noviembre_str:  .asciz "noviembre"
 diciembre_str:  .asciz "diciembre"
+
+poner_pila:
+	lda dia,pcr
+	pshs a
+	lda mes,pcr
+	pshs a
+	lda aNo,pcr
+	pshs a
+
+sacar_pila:
+	puls a
+	sta aNo,pcr
+	puls a
+	sta mes,pcr
+	puls a
+	sta dia,pcr
 
 enero:
   ldx #enero_str
@@ -125,5 +142,22 @@ comprobar_bisiesto:
 
 no_bisiesto:
 
+sumar_mes:
+	lda mes,pcr
+	adda 0x80
+	sta mes,pcr
+
+comprobar_mes:
+	lda mes,pcr
+	suba #0xB
+	blo no_suma_anio
+	ldb aNo,pcr
+	addb #0x1
+	sta mes,pcr
+	stb aNo,pcr
+
+no_suma_anio:
+
+
 regresar:
-  rts
+  	rts
