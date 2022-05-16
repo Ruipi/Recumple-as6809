@@ -41,7 +41,7 @@ bucle_n_cumple:
 	bsr suma_dia
 	bsr comprobar_dia
 	;daa
-	;bsr presentar
+	;bsr presntar
 	bsr sumar_iteracion
 	lda 0x80
 	cmpa Ncumples
