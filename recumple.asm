@@ -7,8 +7,13 @@
     .globl acabar
     .globl mostrarMes
     .globl comprobar_bisiesto
+	.globl sumar_anio
+	.globl sumar_mes
+	.globl comprobar_mes
+	.globl comprobar_dia
+	.globl suma_dia
+	.globl sumar_iteracion
     .globl daa
-
     .globl aNo
     .globl mes
     .globl dia
@@ -23,7 +28,6 @@ programa:
 	lds #0xF000
 	lda #0
 	sta 0x80
-	bsr poner_pila
 
 bucle_n_cumple:
 	bsr sumar_anio
