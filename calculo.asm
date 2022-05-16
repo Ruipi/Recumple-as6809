@@ -55,40 +55,40 @@ marzo:
 	bra imprimir
 
 abril:
-  ldx #abril_str
-  bra imprimir
+	ldx #abril_str
+	bra imprimir
 
 mayo:
-  ldx #mayo_str
-  bra imprimir
+	ldx #mayo_str
+	bra imprimir
 
 junio:
-  ldx #junio_str
-  bra imprimir
+	ldx #junio_str
+	bra imprimir
 
 julio:
-  ldx #julio_str
-  bra imprimir
+	ldx #julio_str
+	bra imprimir
 
 agosto:
-  ldx #agosto_str
-  bra imprimir
+	ldx #agosto_str
+	bra imprimir
 
 septiembre:
-  ldx #septiembre_str
-  bra imprimir
+	ldx #septiembre_str
+	bra imprimir
 
 octubre:
-  ldx #octubre_str
-  bra imprimir
+	ldx #octubre_str
+	bra imprimir
 
 noviembre:
-  ldx #noviembre_str
-  bra imprimir
+	ldx #noviembre_str
+	bra imprimir
 
 diciembre:
-  ldx #diciembre_str
-  bra imprimir
+	ldx #diciembre_str
+	bra imprimir
 
 mostrarMes:
 	cmpb #0x1
