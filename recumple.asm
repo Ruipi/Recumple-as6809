@@ -1,26 +1,33 @@
+
     .module recumple
 
     .area PROG (ABS)
 
-    .org 0x100
+    .org 0x150
     .globl acabar
+    .globl mostrarMes
     .globl comprobar_bisiesto
     .globl daa
 
-aNo:    .word 0x1976 	; Año de nacimiento (BCD) 
-mes:	.word 0x7 		; Mes de nacimiento (BCD) 
-dia:	.word 0x27 		; Dia de nacimiento (BCD)
-Ncumples:	.byte 0x10 	; Numero de Recumples a calcular
+    .globl aNo
+    .globl mes
+    .globl dia
+    .globl Ncumples
+
+aNo:            .word 0x1976 	; Año de nacimiento (BCD) 
+mes:    	.word 0x7 	; Mes de nacimiento (BCD) 
+dia:	        .word 0x27 	; Dia de nacimiento (BCD)
+Ncumples:     	.byte 0x10 	; Numero de Recumples a calcular
 
 programa:
-	lds #0xF000
-	lda #1
-	sta 0x80
+  lds #0xF000
+  lda #1
+  sta 0x80
 
 acabar: 
-    clra
-    sta 0xFF01
+  clra
+  sta 0xFF01
 
-    .org 0xFFFE
-    .word programa
+  .org 0xFFFE
+  .word programa
 
