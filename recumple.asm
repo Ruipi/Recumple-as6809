@@ -49,9 +49,9 @@ bucle_n_cumple:
 	lbsr imprime
 	lbsr imprime_salto
 	
-	ldb mes
+	lda mes
 	lbsr daa
-	stb mes
+	sta mes
 	lbsr imprime
 	lbsr imprime_salto
 
@@ -60,11 +60,11 @@ bucle_n_cumple:
 	exg a,b
 	lbsr daa
 	sta aNo
-	cmpa #0x20
+	cmpb #0x20
 	blo imprime_19
-	ldb #20
+	lda #20
 	lbsr imprime
-	ldb aNo
+	lda aNo
 	lbsr imprime
 
 	;bsr presentar
@@ -75,9 +75,9 @@ bucle_n_cumple:
 	bra acabar
 
 imprime_19:
-	ldb #19
+	lda #19
 	lbsr imprime
-	ldb aNo
+	lda aNo
 	lbsr imprime
 
 imprime_salto:

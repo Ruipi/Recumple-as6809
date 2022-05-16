@@ -19,18 +19,18 @@
 	.globl dia
 	.globl mes
 
-enero_str:      .asciz "enero"
-febrero_str:    .asciz "febrero"
-marzo_str:      .asciz "marzo"
-abril_str:      .asciz "abril"
-mayo_str:       .asciz "mayo"
-junio_str:      .asciz "junio"
-julio_str:      .asciz "julio"
-agosto_str:     .asciz "agosto"
-septiembre_str: .asciz "septiembre"
-octubre_str:    .asciz "octubre"
-noviembre_str:  .asciz "noviembre"
-diciembre_str:  .asciz "diciembre"
+enero_str:      .asciz " enero "
+febrero_str:    .asciz " febrero "
+marzo_str:      .asciz " marzo "
+abril_str:      .asciz " abril "
+mayo_str:       .asciz " mayo "
+junio_str:      .asciz " junio "
+julio_str:      .asciz " julio "
+agosto_str:     .asciz " agosto "
+septiembre_str: .asciz " septiembre "
+octubre_str:    .asciz " octubre "
+noviembre_str:  .asciz " noviembre "
+diciembre_str:  .asciz " diciembre "
 
 poner_pila:
 	lda dia
