@@ -1,10 +1,10 @@
-all: recumple.s19
+all: recumples.s19
 
-recumple.s19: recumple.rel 
-	aslink -s recumple.rel 
+recumples.s19: recumples.rel 
+	aslink -s recumples.rel 
 
-recumple.rel: recumple.asm
-	as6809 -o -l recumple.asm 
+recumples.rel: recumples.asm
+	as6809 -o -l recumples.asm 
 
 .PHONY:	clean
 clean:
