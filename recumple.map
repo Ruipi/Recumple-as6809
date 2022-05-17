@@ -1,0 +1,60 @@
+ASxxxx Linker V05.40                                                                Page 1
+Hexadecimal [16-Bits]                                 Tue May 17 15:36:33 2022
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.  .ABS.                   0000        0000 =           0. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0000  .__.ABS.                           aux
+
+ASxxxx Linker V05.40                                                                Page 2
+Hexadecimal [16-Bits]                                 Tue May 17 15:36:33 2022
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+PROG                       0000        0000 =           0. bytes (ABS,OVR,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0250  aNo                                recumple
+          0252  mes                                recumple
+          0254  dia                                recumple
+          0256  Ncumples                           recumple
+          0304  acabar                             recumple
+
+ASxxxx Linker V05.40                                                                Page 3
+Hexadecimal [16-Bits]                                 Tue May 17 15:36:33 2022
+[ Bank == _CSEG ]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                      0000        023F =         575. bytes (REL,CON,CSEG)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+          0000  imprime                            imprimir
+          009D  poner_pila                         calculo
+          00AF  sacar_pila                         calculo
+          00FD  mostrarMes                         calculo
+          0139  sumar_iteracion                    calculo
+          0140  sumar_anio                         calculo
+          0153  comprobar_bisiesto                 calculo
+          018F  sumar_mes                          calculo
+          019B  comprobar_mes                      calculo
+          01AE  suma_dia                           calculo
+          01BA  comprobar_dia                      calculo
+          0207  daa                                aux
+ASxxxx Linker V05.40                                                                Page 4
+Hexadecimal [16-Bits]                                 Tue May 17 15:36:33 2022
+
+Files Linked                              [ module(s) ]
+
+recumple.rel                              [ recumple ]
+imprimir.rel                              [ imprimir ]
+calculo.rel                               [ calculo ]
+aux.rel                                   [ aux ]
+
+
+

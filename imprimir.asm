@@ -6,33 +6,37 @@
 imprime:
         ; segunda cifra.  En A quedan las dos Ultimas cifras
 		ldb #0
-        cmpa #80
+        cmpa #0x80
         blo Menor80
         incb
-        suba #80
+        suba #0x80
 Menor80:
 		lslb
-        cmpa #40
+        cmpa #0x40
         blo Menor40
         incb
-        suba #40
+        suba #0x40
 Menor40:
 		lslb
-        cmpa #20
+        cmpa #0x20
         blo Menor20
         incb
-        suba #20
+        suba #0x20
 Menor20:
 		lslb
-        cmpa #10
+        cmpa #0x10
         blo Menor10
         incb
-        suba #10
+        suba #0x10
 Menor10:
 		addb #'0
-        stb 0xFF00
         adda #'0
-        sta 0xFF00
+
+imprime_cifra_b:
+        stb 0xFF00 
+
+imprime_cifra_a:
+        sta 0xFF00 
 
 acabar:
-	rts
+		rts

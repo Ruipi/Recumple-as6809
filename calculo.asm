@@ -100,6 +100,7 @@ diciembre:
 	bra imprimir
 
 mostrarMes:
+	ldb mes
 	cmpb #0x1
 	beq enero
 	cmpb #0x2
@@ -138,13 +139,12 @@ sumar_iteracion:
 
 sumar_anio:
 	ldd aNo,pcr
-	addd 0x80
 	exg a,b
+	adda 0x80
 	lbsr daa
 	exg a,b
+	adca #0x0
 	std aNo
-	lda 0x080
-	sta 0xFF00
 	rts
 
 comprobar_bisiesto:
@@ -199,6 +199,7 @@ suma_dia:
 	adda 0x80
 	lbsr daa
 	sta dia
+	rts
 
 comprobar_dia:
 	lda dia
