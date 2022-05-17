@@ -6,7 +6,7 @@
     .org 0x150
 	.globl programa
 
-aNo:            .word 0x2001 	; Año de nacimiento (BCD) 
+aNo:            .word 0x1990 	; Año de nacimiento (BCD) 
 mes:	    	.word 0x8	; Mes de nacimiento (BCD) 
 dia:	        .word 0x29 	; Dia de nacimiento (BCD)
 Ncumples:     	.byte 20	; Numero de Recumples a calcular
@@ -234,8 +234,17 @@ sumar_anio:
 	exg a,b
 	adda 0x80
 	lbsr daa
+	cmpa #0
+	beq cambiar_siglo 
 	exg a,b
-	adca #0x0
+	std aNo,pcr
+	rts
+
+cambiar_siglo:
+	pulu b
+	ldb #0x20
+	pshu b
+	exg a,b
 	std aNo,pcr
 	rts
 
@@ -286,12 +295,16 @@ comprobar_mes:
 	lda mes,pcr
 	cmpa #0x12
 	lbls regresar 
-	suba #0x12
+	adda #0x08
+	lbsr daa
+	suba #0x20
 	sta mes,pcr
 	ldd aNo,pcr
 	exg a,b
 	adda #0x1
 	lbsr daa
+	cmpa #0
+	lbeq cambiar_siglo
 	exg a,b
 	std aNo,pcr
 	rts
@@ -322,7 +335,9 @@ comprobar_dia:
 	beq rest_30_sum_mes
 	cmpa #0x31		;COMPARA EL DIA COM 31
 	bls regresar 
-	suba #0x31
+	adda #0x09
+	bsr daa
+	suba #0x40
 	sta dia,pcr
 	lda mes,pcr
 	adda #0x01
