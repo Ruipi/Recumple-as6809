@@ -1,5 +1,3 @@
-
-
 	.module calculo
 
 	.globl acabar
@@ -13,6 +11,7 @@
 	.globl sumar_iteracion
 	.globl sacar_pila
 	.globl poner_pila
+	.globl daa
 
 	.globl Ncumples
 	.globl aNo
@@ -37,13 +36,15 @@ poner_pila:
 	pshu a
 	lda mes
 	pshu a
-	lda aNo
+	ldd aNo
+	pshu b
 	pshu a
 	rts 
 
 sacar_pila:
 	pulu a
-	sta aNo
+	pulu b
+	std aNo
 	pulu a
 	sta mes
 	pulu a
@@ -131,13 +132,19 @@ imprimir:
 
 sumar_iteracion:
 	lda 0x80
-	inca
+	adda #0x01 
 	sta 0x80
 	rts
 
 sumar_anio:
 	ldd aNo,pcr
 	addd 0x80
+	exg a,b
+	lbsr daa
+	exg a,b
+	std aNo
+	lda 0x080
+	sta 0xFF00
 	rts
 
 comprobar_bisiesto:
@@ -173,12 +180,13 @@ no_bisiesto:
 sumar_mes:
 	lda mes
 	adda 0x80
+	lbsr daa
 	sta mes
 	rts
 
 comprobar_mes:
 	lda mes
-	suba #0xB
+	suba #0x12
 	bls regresar 
 	ldb aNo
 	addb #0x1
@@ -189,35 +197,36 @@ comprobar_mes:
 suma_dia:
 	lda dia
 	adda 0x80
+	lbsr daa
 	sta dia
 
 comprobar_dia:
 	lda dia
 	ldb mes
-	cmpa #0x1C 		;COMPARA EL DIA CON 28
-	bls regresar 
+	cmpa #0x28		;COMPARA EL DIA CON 28
+	lbls regresar 
 	cmpb #0x02
 	lbeq comprobar_bisiesto
-	cmpa #0x1E		;COMPARA EL DIA CON 30
-	bls regresar 
+	cmpa #0x30		;COMPARA EL DIA CON 30
+	lbls regresar 
 	cmpb #0x04
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpb #0x06
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpb #0x09
-	beq rest_30_sum_mes
-	cmpb #0xB
-	beq rest_30_sum_mes
-	cmpa #0x1F		;COMPARA EL DIA COM 31
-	bls regresar 
-	suba #0x1F
+	lbeq rest_30_sum_mes
+	cmpb #0x11
+	lbeq rest_30_sum_mes
+	cmpa #0x31		;COMPARA EL DIA COM 31
+	lbls regresar 
+	suba #0x31
 	addb #0x01
 	sta dia
 	stb mes
 	rts
 
 rest_30_sum_mes:
-	suba #0x1E
+	suba #0x30
 	addb #0x01
 	sta dia
 	stb mes
