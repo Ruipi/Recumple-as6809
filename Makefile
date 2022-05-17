@@ -14,3 +14,7 @@ calculo.rel: calculo.asm
 
 aux.rel: aux.asm
 	as6809 -o -l aux.asm
+
+.PHONY:	clean
+clean:
+	rm -f *.hlr *.rel *.rst *.map *.lst
