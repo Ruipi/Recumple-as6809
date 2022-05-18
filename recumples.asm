@@ -328,51 +328,51 @@ imprime_de:
 	rts
 
 enero:
-	ldx #enero_str
+	leax enero_str,pcr
 	bra imprimir
 
 febrero:
-	ldx #febrero_str
+	leax febrero_str,pcr
 	bra imprimir
 
 marzo:
-	ldx #marzo_str
+	leax marzo_str,pcr
 	bra imprimir
 
 abril:
-	ldx #abril_str
+	leax abril_str,pcr
 	bra imprimir
 
 mayo:
-	ldx #mayo_str
+	leax mayo_str,pcr
 	bra imprimir
 
 junio:
-	ldx #junio_str
+	leax junio_str,pcr
 	bra imprimir
 
 julio:
-	ldx #julio_str
+	leax julio_str,pcr
 	bra imprimir
 
 agosto:
-	ldx #agosto_str
+	leax agosto_str,pcr
 	bra imprimir
 
 septiembre:
-	ldx #septiembre_str
+	leax septiembre_str,pcr
 	bra imprimir
 
 octubre:
-	ldx #octubre_str
+	leax octubre_str,pcr
 	bra imprimir
 
 noviembre:
-	ldx #noviembre_str
+	leax noviembre_str,pcr
 	bra imprimir
 
 diciembre:
-	ldx #diciembre_str
+	leax diciembre_str,pcr
 	bra imprimir
 
 mostrarMes:
