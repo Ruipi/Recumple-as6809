@@ -5,9 +5,9 @@
     .org 0x100
 	.globl programa
 
-aNo:            .word 0x1999 	; Año de nacimiento (BCD) 
+aNo:            .word 0x2000 	; Año de nacimiento (BCD) 
 mes:	    	.word 0x9	; Mes de nacimiento (BCD) 
-dia:	        .word 0x25 	; Dia de nacimiento (BCD)
+dia:	        .word 0x2 	; Dia de nacimiento (BCD)
 Ncumples:     	.byte 20	; Numero de Recumples a calcular
 enero_str:      .asciz " enero "
 febrero_str:    .asciz " febrero "
@@ -37,12 +37,13 @@ programa:
 	bra poner_pila
 	
 sacar_pila:
-	pulu a
 	pulu b
+	pulu a
 	std aNo,pcr
 	pulu a
 	sta mes,pcr
 	pulu a
+	sta dia,pcr
 
 poner_pila:
 	lda dia,pcr
@@ -50,9 +51,8 @@ poner_pila:
 	lda mes,pcr
 	pshu a
 	ldd aNo,pcr
-	pshu b
 	pshu a
-	sta dia,pcr
+	pshu b
 
 sumar_anio:
 	ldd aNo,pcr
@@ -69,8 +69,6 @@ sumar_mes:
 	adda 0x80
 	lbsr daa
 	sta mes,pcr
-	
-comprueba_mes_1:
 	lbsr comprobar_mes
 
 suma_dia:
@@ -83,21 +81,21 @@ comprobar_dia:
 	lda dia,pcr
 	ldb mes,pcr
 	cmpa #0x28		;COMPARA EL DIA CON 28
-	bra comprueba_mes_2 
+	bls presentame_esta 
 	cmpb #0x02
 	lbeq comprobar_bisiesto
 	cmpa #0x30		;COMPARA EL DIA CON 30
-	bra comprueba_mes_2 
+	bls presentame_esta 
 	cmpb #0x04
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpb #0x06
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpb #0x09
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpb #0x11
-	beq rest_30_sum_mes
+	lbeq rest_30_sum_mes
 	cmpa #0x31		;COMPARA EL DIA COM 31
-	bra comprueba_mes_2 
+	bls presentame_esta 
 	adda #0x09
 	lbsr daa
 	suba #0x40
@@ -106,18 +104,20 @@ comprobar_dia:
 	adda #0x01
 	lbsr daa
 	sta mes,pcr
+	lbsr comprobar_mes
 
-comprueba_mes_2:
-	bsr comprobar_mes
-
+presentame_esta:
 	lbsr presentar
 
 compara_iter:
-	bsr sumar_iteracion
+	lbsr sumar_iteracion
 	lda 0x81
 	cmpa Ncumples
 	lbls sacar_pila 
 	lbra acabar
+
+
+;;;;;;;;;;;;;;;;;;SUBRUTINAS DE CALCULO;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 comprobar_mes:
 	lda mes,pcr
@@ -138,14 +138,13 @@ comprobar_mes:
 	rts
 
 rest_30_sum_mes:
-	lda dia,pcr
 	suba #0x30
 	sta dia,pcr
 	lda mes,pcr
 	adda #0x01
 	lbsr daa
 	sta mes,pcr
-	rts
+	bra presentame_esta
 	
 sumar_iteracion:
 	lda 0x80
@@ -191,7 +190,7 @@ no_bisiesto:
 	adda #0x01
 	lbsr daa
 	sta mes,pcr
-	rts
+	lbra presentame_esta
 
 regresar:
   	rts
@@ -244,7 +243,6 @@ daa_sinAjusteAlto:
   puls cc,a 
   tsta       ; ajustamos los flags Z y N del resultado
   rts
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;IMPRIME;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -429,12 +427,9 @@ imprime_cifra_a:
         sta 0xFF00 
 		rts
 	
-
-	
 acabar: 
 	clra
 	sta 0xFF01
 
 	.org 0xFFFE
 	.word programa
-
