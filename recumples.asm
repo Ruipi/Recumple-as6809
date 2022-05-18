@@ -5,9 +5,9 @@
     .org 0x100
 	.globl programa
 
-aNo:            .word 0x1990 	; Año de nacimiento (BCD) 
-mes:	    	.word 0x8	; Mes de nacimiento (BCD) 
-dia:	        .word 0x29 	; Dia de nacimiento (BCD)
+aNo:            .word 0x1999 	; Año de nacimiento (BCD) 
+mes:	    	.word 0x9	; Mes de nacimiento (BCD) 
+dia:	        .word 0x25 	; Dia de nacimiento (BCD)
 Ncumples:     	.byte 20	; Numero de Recumples a calcular
 enero_str:      .asciz " enero "
 febrero_str:    .asciz " febrero "
@@ -54,64 +54,70 @@ poner_pila:
 	pshu a
 	sta dia,pcr
 
-bucle_n_cumple:
-	bsr sumar_anio
-	bsr sumar_mes
-	lbsr comprobar_mes
-	bsr suma_dia
-	lbsr comprobar_dia
-	lbsr comprobar_mes
-	lbsr presentar
-
-compara_iter:
-	bsr sumar_iteracion
-	lda 0x81
-	cmpa Ncumples
-	bls sacar_pila 
-	lbra acabar
-	
-sumar_iteracion:
-	lda 0x80
-	adda #0x01 
+sumar_anio:
+	ldd aNo,pcr
+	exg a,b
+	adda 0x80
 	lbsr daa
-	sta 0x80
-	lda 0x81
-	inca
-	sta 0x81
-	rts
+	exg a,b
+	adca #0x0
+	lbsr daa
+	std aNo,pcr
 
 sumar_mes:
 	lda mes,pcr
 	adda 0x80
 	lbsr daa
 	sta mes,pcr
-	rts
+	
+comprueba_mes_1:
+	lbsr comprobar_mes
 
 suma_dia:
 	lda dia,pcr
 	adda 0x80
 	lbsr daa
 	sta dia,pcr
-	rts
 
-sumar_anio:
-	ldd aNo,pcr
-	exg a,b
-	adda 0x80
+comprobar_dia:
+	lda dia,pcr
+	ldb mes,pcr
+	cmpa #0x28		;COMPARA EL DIA CON 28
+	bra comprueba_mes_2 
+	cmpb #0x02
+	lbeq comprobar_bisiesto
+	cmpa #0x30		;COMPARA EL DIA CON 30
+	bra comprueba_mes_2 
+	cmpb #0x04
+	beq rest_30_sum_mes
+	cmpb #0x06
+	beq rest_30_sum_mes
+	cmpb #0x09
+	beq rest_30_sum_mes
+	cmpb #0x11
+	beq rest_30_sum_mes
+	cmpa #0x31		;COMPARA EL DIA COM 31
+	bra comprueba_mes_2 
+	adda #0x09
 	lbsr daa
-	cmpa #0
-	beq cambiar_siglo 
-	exg a,b
-	std aNo,pcr
-	rts
+	suba #0x40
+	sta dia,pcr
+	lda mes,pcr
+	adda #0x01
+	lbsr daa
+	sta mes,pcr
 
-cambiar_siglo:
-	pulu b
-	ldb #0x20
-	pshu b
-	exg a,b
-	std aNo,pcr
-	rts
+comprueba_mes_2:
+	bsr comprobar_mes
+
+	lbsr presentar
+
+compara_iter:
+	bsr sumar_iteracion
+	lda 0x81
+	cmpa Ncumples
+	lbls sacar_pila 
+	lbra acabar
 
 comprobar_mes:
 	lda mes,pcr
@@ -125,10 +131,30 @@ comprobar_mes:
 	exg a,b
 	adda #0x1
 	lbsr daa
-	cmpa #0
-	beq cambiar_siglo
 	exg a,b
+	adca #0x0
+	lbsr daa
 	std aNo,pcr
+	rts
+
+rest_30_sum_mes:
+	lda dia,pcr
+	suba #0x30
+	sta dia,pcr
+	lda mes,pcr
+	adda #0x01
+	lbsr daa
+	sta mes,pcr
+	rts
+	
+sumar_iteracion:
+	lda 0x80
+	adda #0x01 
+	lbsr daa
+	sta 0x80
+	lda 0x81
+	inca
+	sta 0x81
 	rts
 
 comprobar_bisiesto:
@@ -164,46 +190,6 @@ no_bisiesto:
 	lda mes,pcr	
 	adda #0x01
 	lbsr daa
-	sta mes,pcr
-	rts
-
-
-comprobar_dia:
-	lda dia,pcr
-	ldb mes,pcr
-	cmpa #0x28		;COMPARA EL DIA CON 28
-	bls regresar 
-	cmpb #0x02
-	lbeq comprobar_bisiesto
-	cmpa #0x30		;COMPARA EL DIA CON 30
-	bls regresar 
-	cmpb #0x04
-	beq rest_30_sum_mes
-	cmpb #0x06
-	beq rest_30_sum_mes
-	cmpb #0x09
-	beq rest_30_sum_mes
-	cmpb #0x11
-	beq rest_30_sum_mes
-	cmpa #0x31		;COMPARA EL DIA COM 31
-	bls regresar 
-	adda #0x09
-	bsr daa
-	suba #0x40
-	sta dia,pcr
-	lda mes,pcr
-	adda #0x01
-	bsr daa
-	sta mes,pcr
-	rts
-
-rest_30_sum_mes:
-	lda dia,pcr
-	suba #0x30
-	sta dia,pcr
-	lda mes,pcr
-	adda #0x01
-	bsr daa
 	sta mes,pcr
 	rts
 
