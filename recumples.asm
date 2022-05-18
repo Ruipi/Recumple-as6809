@@ -69,7 +69,7 @@ sumar_mes:
 	adda 0x80
 	lbsr daa
 	sta mes,pcr
-	lbsr comprobar_mes
+	bsr comprobar_mes
 
 suma_dia:
 	lda dia,pcr
@@ -87,13 +87,13 @@ comprobar_dia:
 	cmpa #0x30		;COMPARA EL DIA CON 30
 	bls presentame_esta 
 	cmpb #0x04
-	lbeq rest_30_sum_mes
+	beq rest_30_sum_mes
 	cmpb #0x06
-	lbeq rest_30_sum_mes
+	beq rest_30_sum_mes
 	cmpb #0x09
-	lbeq rest_30_sum_mes
+	beq rest_30_sum_mes
 	cmpb #0x11
-	lbeq rest_30_sum_mes
+	beq rest_30_sum_mes
 	cmpa #0x31		;COMPARA EL DIA COM 31
 	bls presentame_esta 
 	adda #0x09
@@ -104,13 +104,13 @@ comprobar_dia:
 	adda #0x01
 	lbsr daa
 	sta mes,pcr
-	lbsr comprobar_mes
+	bsr comprobar_mes
 
 presentame_esta:
 	lbsr presentar
 
 compara_iter:
-	lbsr sumar_iteracion
+	bsr sumar_iteracion
 	lda 0x81
 	cmpa Ncumples
 	lbls sacar_pila 
@@ -142,14 +142,14 @@ rest_30_sum_mes:
 	sta dia,pcr
 	lda mes,pcr
 	adda #0x01
-	lbsr daa
+	bsr daa
 	sta mes,pcr
 	bra presentame_esta
 	
 sumar_iteracion:
 	lda 0x80
 	adda #0x01 
-	lbsr daa
+	bsr daa
 	sta 0x80
 	lda 0x81
 	inca
@@ -171,24 +171,24 @@ comprobar_bisiesto:
 	cmpa #0x29	 
 	lbls regresar 
 	adda #0x01	
-	lbsr daa
+	bsr daa
 	suba #0x30
 	sta dia,pcr
 	lda mes,pcr
 	adda #0x01
-	lbsr daa
+	bsr daa
 	sta mes,pcr
 	rts
 	
 no_bisiesto:
 	lda dia,pcr
 	adda #0x02
-	lbsr daa
+	bsr daa
 	suba #0x30
 	sta dia,pcr
 	lda mes,pcr	
 	adda #0x01
-	lbsr daa
+	bsr daa
 	sta mes,pcr
 	lbra presentame_esta
 
@@ -246,71 +246,6 @@ daa_sinAjusteAlto:
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;IMPRIME;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-imprime_iter:
-	lda 0x80
-	lbsr imprime	
-	rts
-
-imprime_dia:
-	lda dia
-	lbsr imprime
-	rts 
-
-imprime_mes:
-	lda mes
-	lbsr imprime
-	rts
-
-imprime_ano:
-	ldd aNo
-	cmpa #0x20
-	blo imprime_19
-	lda #0x20
-	lbsr imprime
-	ldd aNo
-	exg a,b
-	lbsr imprime
-	rts
-
-imprime_19:
-	lda #0x19
-	lbsr imprime
-	ldd aNo
-	exg a,b
-	lbsr imprime
-	rts
-	
-imprime_salto:
-	lda #'\n
-	sta 0xFF00
-	rts
-
-presentar:
-	bsr imprime_iter
-	lda #0x3A
-	sta 0xFF00
-	lda #0x20
-	sta 0xFF00
-	bsr imprime_dia
-	lda #0x20
-	sta 0xFF00
-	bsr imprime_de
-	lbsr mostrarMes
-	bsr imprime_de
-	lda #0x20
-	sta 0xFF00
-	bsr imprime_ano
-	bsr imprime_salto
-	rts
-
-imprime_de:
-	lda #100
-	ldb #101
-	sta 0xFF00
-	stb 0xFF00
-	rts
-
 enero:
 	leax enero_str,pcr
 	bra imprimir
@@ -392,7 +327,71 @@ imprimir:
 	bra imprimir
 
 
-imprime:
+imprime_iter:
+	lda 0x80
+	bsr imprime_nums	
+	rts
+
+imprime_dia:
+	lda dia
+	bsr imprime_nums
+	rts 
+
+imprime_mes:
+	lda mes
+	bsr imprime_nums
+	rts
+
+imprime_ano:
+	ldd aNo
+	cmpa #0x20
+	blo imprime_19
+	lda #0x20
+	bsr imprime_nums
+	ldd aNo
+	exg a,b
+	bsr imprime_nums
+	rts
+
+imprime_19:
+	lda #0x19
+	bsr imprime_nums
+	ldd aNo
+	exg a,b
+	bsr imprime_nums
+	rts
+	
+imprime_salto:
+	lda #'\n
+	sta 0xFF00
+	rts
+
+presentar:
+	bsr imprime_iter
+	lda #0x3A
+	sta 0xFF00
+	lda #0x20
+	sta 0xFF00
+	bsr imprime_dia
+	lda #0x20
+	sta 0xFF00
+	bsr imprime_de
+	lbsr mostrarMes
+	bsr imprime_de
+	lda #0x20
+	sta 0xFF00
+	bsr imprime_ano
+	bsr imprime_salto
+	rts
+
+imprime_de:
+	lda #100
+	ldb #101
+	sta 0xFF00
+	stb 0xFF00
+	rts
+
+imprime_nums:
 		ldb #0
         cmpa #0x80
         blo Menor80
