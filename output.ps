@@ -1,0 +1,4372 @@
+%!PS-Adobe-3.0
+%%Title: recumples.asm
+%%For: ruipi
+%%Creator: NVIM v0.6.1
+%%CreationDate: jue may 19 15:44:35 2022
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 59 49 564 800
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: A4
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/share/nvim/runtime/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/share/nvim/runtime/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+595 842 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 1)59.5 792.4 ms
+F0 sf
+(  )59.5 772.4 ms
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)s
+0 g
+(  )59.5 762.4 ms
+0.376 0 0 r
+(; RECUMPLEAÑOS                                                     ;)s
+0 g
+(  )59.5 752.4 ms
+0.376 0 0 r
+(;     Julia Ruiperez de Brito 71080834R                            ;)s
+0 g
+(  )59.5 742.4 ms
+0.376 0 0 r
+(;                                                                  ;)s
+0 g
+(  )59.5 732.4 ms
+0.376 0 0 r
+(;     y                                                            ;)s
+0 g
+(  )59.5 722.4 ms
+0.376 0 0 r
+(;                                                                  ;)s
+0 g
+(  )59.5 712.4 ms
+0.376 0 0 r
+(;     Daniel Rodriguez Sanchez 70963270J                           ;)s
+0 g
+(  )59.5 702.4 ms
+0.376 0 0 r
+(;                                                                  ;)s
+0 g
+(  )59.5 692.4 ms
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)s
+0 g
+(    )59.5 662.4 ms
+0.376 0 0 r
+(.module)s
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(recumple)s
+F0 sf
+0 g
+(    )59.5 642.4 ms
+0.376 0 0 r
+(.area)s
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(PROG)s
+F0 sf
+0 g
+( \()s
+F1 sf
+0.498 0.125 0.498 r
+(ABS)s
+F0 sf
+0 g
+(\))s
+(    )59.5 622.4 ms
+0.376 0 0 r
+(.org)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x100)s
+0 g
+(    )59.5 612.4 ms
+0.376 0 0 r
+(.globl)s
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(programa)s
+F0 sf
+0.376 0 0.376 r
+(aNo)59.5 592.4 ms
+0 g
+(:            )s
+0.376 0 0 r
+(.word)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x1976)s
+0 g
+(    )s
+0.376 0 0 r
+(; Año de nacimiento \(BCD\) )s
+0.376 0 0.376 r
+(mes)59.5 582.4 ms
+0 g
+(:            )s
+0.376 0 0 r
+(.word)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x7)s
+0 g
+(       )s
+0.376 0 0 r
+(; Mes de nacimiento \(BCD\) )s
+0.376 0 0.376 r
+(dia)59.5 572.4 ms
+0 g
+(:            )s
+0.376 0 0 r
+(.word)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x27)s
+0 g
+(      )s
+0.376 0 0 r
+(; Dia de nacimiento \(BCD\))s
+0.376 0 0.376 r
+(Ncumples)59.5 562.4 ms
+0 g
+(:       )s
+0.376 0 0 r
+(.byte)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(25)s
+0 g
+(        )s
+0.376 0 0 r
+(; Numero de Recumples a calcular)s
+0.376 0 0.376 r
+(enero_str)59.5 552.4 ms
+0 g
+(:      )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" enero ")s
+0.376 0 0.376 r
+(febrero_str)59.5 542.4 ms
+0 g
+(:    )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" febrero ")s
+0.376 0 0.376 r
+(marzo_str)59.5 532.4 ms
+0 g
+(:      )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" marzo ")s
+0.376 0 0.376 r
+(abril_str)59.5 522.4 ms
+0 g
+(:      )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" abril ")s
+0.376 0 0.376 r
+(mayo_str)59.5 512.4 ms
+0 g
+(:       )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" mayo ")s
+0.376 0 0.376 r
+(junio_str)59.5 502.4 ms
+0 g
+(:      )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" junio ")s
+0.376 0 0.376 r
+(julio_str)59.5 492.4 ms
+0 g
+(:      )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" julio ")s
+0.376 0 0.376 r
+(agosto_str)59.5 482.4 ms
+0 g
+(:     )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" agosto ")s
+0.376 0 0.376 r
+(septiembre_str)59.5 472.4 ms
+0 g
+(: )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" septiembre ")s
+0.376 0 0.376 r
+(octubre_str)59.5 462.4 ms
+0 g
+(:    )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" octubre ")s
+0.376 0 0.376 r
+(noviembre_str)59.5 452.4 ms
+0 g
+(:  )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" noviembre ")s
+0.376 0 0.376 r
+(diciembre_str)59.5 442.4 ms
+0 g
+(:  )s
+0.376 0 0 r
+(.asciz)s
+0 g
+( )s
+0 0.125 0.251 r
+(" diciembre ")s
+0.376 0 0.376 r
+(programa)59.5 412.4 ms
+0 g
+(:)s
+(    )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(+)s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(+)s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 372.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 362.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lds)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0xF000)s
+0 g
+(    )59.5 352.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldu)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0xF100)s
+0 g
+(    )59.5 342.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x0)s
+0 g
+(    )59.5 332.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )s
+0.376 0 0 r
+(;Una para imprimir la iteracion en BCD)s
+0 g
+(    )59.5 322.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0)s
+0 g
+(    )59.5 312.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x81)s
+0 g
+(    )s
+0.376 0 0 r
+(;Otra para comparar la iteracion con Ncumples)s
+0 g
+(    )59.5 302.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(poner_pila)s
+F0 sf
+0 g
+(    )59.5 292.4 ms
+0.376 0 0.376 r
+(sacar_pila)59.5 282.4 ms
+0 g
+(:)s
+(    )59.5 272.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pulu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 262.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pulu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(std)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pulu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 232.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 222.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pulu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 212.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0.376 0 0.376 r
+(poner_pila)59.5 192.4 ms
+0 g
+(:)s
+(    )59.5 182.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 172.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pshu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 162.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 152.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pshu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 142.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 132.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pshu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 122.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pshu)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0.376 0 0.376 r
+(sumar_anio)59.5 102.4 ms
+0 g
+(:)s
+(    )59.5 92.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 82.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 72.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 62.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 52.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 2)59.5 792.4 ms
+F0 sf
+(    )59.5 772.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adca)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x0)s
+0 g
+(    )59.5 762.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 752.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(std)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0.376 0 0.376 r
+(sumar_mes)59.5 732.4 ms
+0 g
+(:)s
+(    )59.5 722.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 712.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 702.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 692.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 682.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(comprobar_mes)s
+F0 sf
+0.376 0 0.376 r
+(suma_dia)59.5 662.4 ms
+0 g
+(:)s
+(    )59.5 652.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 642.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 632.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 622.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0.376 0 0.376 r
+(comprobar_dia)59.5 602.4 ms
+0 g
+(:)s
+(    )59.5 592.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 582.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldb)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 572.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x28      ;COMPARA EL DIA CON 28)s
+0 g
+(    )59.5 562.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentame_esta)s
+F0 sf
+0 g
+( )s
+(    )59.5 552.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x02)s
+0 g
+(    )59.5 542.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbeq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(comprobar_bisiesto)s
+F0 sf
+0 g
+(    )59.5 532.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x30      ;COMPARA EL DIA CON 30)s
+0 g
+(    )59.5 522.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentame_esta)s
+F0 sf
+0 g
+( )s
+(    )59.5 512.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x04)s
+0 g
+(    )59.5 502.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(rest_30_sum_mes)s
+F0 sf
+0 g
+(    )59.5 492.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x06)s
+0 g
+(    )59.5 482.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(rest_30_sum_mes)s
+F0 sf
+0 g
+(    )59.5 472.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x09)s
+0 g
+(    )59.5 462.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(rest_30_sum_mes)s
+F0 sf
+0 g
+(    )59.5 452.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x11)s
+0 g
+(    )59.5 442.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(rest_30_sum_mes)s
+F0 sf
+0 g
+(    )59.5 432.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x31      ;COMPARA EL DIA COM 31)s
+0 g
+(    )59.5 422.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentame_esta)s
+F0 sf
+0 g
+( )s
+(    )59.5 412.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x09)s
+0 g
+(    )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x40)s
+0 g
+(    )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 372.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 362.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01)s
+0 g
+(    )59.5 352.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 342.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 332.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(comprobar_mes)s
+F0 sf
+0.376 0 0.376 r
+(presentame_esta)59.5 312.4 ms
+0 g
+(:)s
+(    )59.5 302.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentar)s
+F0 sf
+0.376 0 0.376 r
+(compara_iter)59.5 282.4 ms
+0 g
+(:)s
+(    )59.5 272.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(sumar_iteracion)s
+F0 sf
+0 g
+(    )59.5 262.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x81)s
+0 g
+(    )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(Ncumples)s
+F0 sf
+0 g
+(    )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(sacar_pila)s
+F0 sf
+0 g
+( )s
+(    )59.5 232.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(acabar)s
+F0 sf
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;SUBRUTINAS DE CALCULO;;;;;;;;;;;;;;;;;;;;;;;;;;;;)59.5 202.4 ms
+0.376 0 0.376 r
+(comprobar_mes)59.5 182.4 ms
+0 g
+(:)s
+(    )59.5 172.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 162.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x12)s
+0 g
+(    )59.5 152.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(regresar)s
+F0 sf
+0 g
+( )s
+(    )59.5 142.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x08)s
+0 g
+(    )59.5 132.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 122.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 112.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 102.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 92.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 82.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x1)s
+0 g
+(    )59.5 72.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 62.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 52.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adca)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x0)s
+re sp
+%%PageTrailer
+%%Page: 3 3
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 3)59.5 792.4 ms
+F0 sf
+(    )59.5 772.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 762.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(std)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 752.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 742.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x12)s
+0 g
+(    )59.5 732.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bgt)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(comprobar_mes)s
+F0 sf
+0 g
+(    )59.5 722.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(rest_30_sum_mes)59.5 702.4 ms
+0 g
+(:)s
+(    )59.5 692.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x30)s
+0 g
+(    )59.5 682.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 672.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 662.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01)s
+0 g
+(    )59.5 652.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 642.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 632.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentame_esta)s
+F0 sf
+0 g
+(    )59.5 622.4 ms
+0.376 0 0.376 r
+(sumar_iteracion)59.5 612.4 ms
+0 g
+(:)s
+(    )59.5 602.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 592.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01 )s
+0 g
+(    )59.5 582.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 572.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 562.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x81)s
+0 g
+(    )59.5 552.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(inca)s
+F0 sf
+0 g
+(    )59.5 542.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x81)s
+0 g
+(    )59.5 532.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(comprobar_bisiesto)59.5 512.4 ms
+0 g
+(:)s
+(    )59.5 502.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 492.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(tfr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 482.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(anda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#1)s
+0 g
+(    )59.5 472.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x00)s
+0 g
+(    )59.5 462.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bne)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(no_bisiesto)s
+F0 sf
+0 g
+(    )59.5 452.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(tfr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(    )59.5 442.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lsra)s
+F0 sf
+0 g
+(    )59.5 432.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(anda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#1)s
+0 g
+(    )59.5 422.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x00)s
+0 g
+(    )59.5 412.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bne)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(no_bisiesto)s
+F0 sf
+0 g
+(    )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x29   )s
+0 g
+(    )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(regresar)s
+F0 sf
+0 g
+( )s
+(    )59.5 372.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01  )s
+0 g
+(    )59.5 362.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 352.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x30)s
+0 g
+(    )59.5 342.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 332.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 322.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01)s
+0 g
+(    )59.5 312.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 302.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 292.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0 g
+(    )59.5 282.4 ms
+0.376 0 0.376 r
+(no_bisiesto)59.5 272.4 ms
+0 g
+(:)s
+(    )59.5 262.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x02)s
+0 g
+(    )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 232.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x30)s
+0 g
+(    )59.5 222.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 212.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+( )s
+(    )59.5 202.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x01)s
+0 g
+(    )59.5 192.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa)s
+F0 sf
+0 g
+(    )59.5 182.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 172.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(presentame_esta)s
+F0 sf
+0.376 0 0.376 r
+(regresar)59.5 152.4 ms
+0 g
+(:)s
+(    )59.5 142.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0 g
+(  )59.5 122.4 ms
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)s
+0 g
+(  )59.5 112.4 ms
+0.376 0 0 r
+(; daa                                                              ;)s
+0 g
+(  )59.5 102.4 ms
+0.376 0 0 r
+(;     simula la instrucciOn daa del ensamblador                    ;)s
+0 g
+(  )59.5 92.4 ms
+0.376 0 0 r
+(;     se debe usar detAs de la instrucciOn adda para sumas BCD     ;)s
+0 g
+(  )59.5 82.4 ms
+0.376 0 0 r
+(;                                                                  ;)s
+0 g
+(  )59.5 72.4 ms
+0.376 0 0 r
+(;   Entrada: A-resultado de la suma    CC-flags de la suma         ;)s
+0 g
+(  )59.5 62.4 ms
+0.376 0 0 r
+(;   Salida:  A-resultado ajustado BCD  CC-flags ajustados BCD      ;)s
+0 g
+(  )59.5 52.4 ms
+0.376 0 0 r
+(;   Registros afectados: ninguno                                   ;)s
+re sp
+%%PageTrailer
+%%Page: 4 4
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 4)59.5 792.4 ms
+F0 sf
+(  )59.5 772.4 ms
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)s
+0.376 0 0.376 r
+(daa)59.5 752.4 ms
+0 g
+(:)s
+(  )59.5 742.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(pshs)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(cc)s
+F0 sf
+0 g
+(  )59.5 732.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(             )s
+0.376 0 0 r
+(; A=CC)s
+0 g
+(  )59.5 722.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(clr)s
+F0 sf
+0 g
+( ,-)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(            )s
+0.376 0 0 r
+(; S-> 00 CC A)s
+0 g
+(  )59.5 712.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(anda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20         ; bit H de CC)s
+0 g
+(  )59.5 702.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bne)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa_ajusteBajo)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(; si H=1, hay que ajustar la cifra baja)s
+0 g
+(  )59.5 692.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(2)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(            )s
+0.376 0 0 r
+(; si H=0 y la cifra baja>9, ajustarla)s
+0 g
+(  )59.5 682.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(anda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0xF)s
+0 g
+(  )59.5 672.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0xA)s
+0 g
+(  )59.5 662.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa_sinAjusteBajo)s
+F0 sf
+0.376 0 0.376 r
+(daa_ajusteBajo)59.5 642.4 ms
+0 g
+(:)s
+(  )59.5 632.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#6)s
+0 g
+(  )59.5 622.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0.376 0 0.376 r
+(daa_sinAjusteBajo)59.5 602.4 ms
+0 g
+(:)s
+(  )59.5 592.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#1)s
+0 g
+(  )59.5 582.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(anda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 572.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bne)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa_ajusteAlto)s
+F0 sf
+0 g
+(    )s
+0.376 0 0 r
+(; si flag C=1, hay que ajustar la alta)s
+0 g
+(  )59.5 562.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(2)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(               )s
+0.376 0 0 r
+(; o si C=0 y resultado>0x9A)s
+0 g
+(  )59.5 552.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x9A)s
+0 g
+(  )59.5 542.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(daa_sinAjusteAlto)s
+F0 sf
+0.376 0 0.376 r
+(daa_ajusteAlto)59.5 522.4 ms
+0 g
+(:)s
+(  )59.5 512.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 502.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ora)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x60)s
+0 g
+(  )59.5 492.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0.376 0 0.376 r
+(daa_sinAjusteAlto)59.5 472.4 ms
+0 g
+(:)s
+(  )59.5 462.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+(  ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(+   )s
+0.376 0 0 r
+(; aNadimos el ajuste a A)s
+0 g
+(  )59.5 452.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 442.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+(  )s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 432.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(tfr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(cc)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(   )s
+0.376 0 0 r
+(; el flag C es el or del C original y el de la suma)s
+0 g
+(  )59.5 422.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ora)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 412.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(s)s
+F0 sf
+0 g
+(  )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(puls)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(cc)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+( )s
+(  )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(tsta)s
+F0 sf
+0 g
+(       )s
+0.376 0 0 r
+(; ajustamos los flags Z y N del resultado)s
+0 g
+(  )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0 r
+(;;;;;;;;;;;;;;;;;;;;;;;;;;IMPRIME;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)59.5 352.4 ms
+0.376 0 0.376 r
+(enero)59.5 342.4 ms
+0 g
+(:)s
+(    )59.5 332.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(enero_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 322.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(febrero)59.5 302.4 ms
+0 g
+(:)s
+(    )59.5 292.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(febrero_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 282.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(marzo)59.5 262.4 ms
+0 g
+(:)s
+(    )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(marzo_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(abril)59.5 222.4 ms
+0 g
+(:)s
+(    )59.5 212.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(abril_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 202.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(mayo)59.5 182.4 ms
+0 g
+(:)s
+(    )59.5 172.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mayo_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 162.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(junio)59.5 142.4 ms
+0 g
+(:)s
+(    )59.5 132.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(junio_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 122.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(julio)59.5 102.4 ms
+0 g
+(:)s
+(    )59.5 92.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(julio_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 82.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(agosto)59.5 62.4 ms
+0 g
+(:)s
+(    )59.5 52.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(agosto_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+re sp
+%%PageTrailer
+%%Page: 5 5
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 5)59.5 792.4 ms
+F0 sf
+(    )59.5 772.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(septiembre)59.5 752.4 ms
+0 g
+(:)s
+(    )59.5 742.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(septiembre_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 732.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(octubre)59.5 712.4 ms
+0 g
+(:)s
+(    )59.5 702.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(octubre_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 692.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(noviembre)59.5 672.4 ms
+0 g
+(:)s
+(    )59.5 662.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(noviembre_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 652.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(diciembre)59.5 632.4 ms
+0 g
+(:)s
+(    )59.5 622.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(leax)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(diciembre_str)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(pcr)s
+F0 sf
+0 g
+(    )59.5 612.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(mostrarMes)59.5 592.4 ms
+0 g
+(:)s
+(    )59.5 582.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldb)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(    )59.5 572.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x1)s
+0 g
+(    )59.5 562.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(enero)s
+F0 sf
+0 g
+(    )59.5 552.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x2)s
+0 g
+(    )59.5 542.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(febrero)s
+F0 sf
+0 g
+(    )59.5 532.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x3)s
+0 g
+(    )59.5 522.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(marzo)s
+F0 sf
+0 g
+(    )59.5 512.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x4)s
+0 g
+(    )59.5 502.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(abril)s
+F0 sf
+0 g
+(    )59.5 492.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x5)s
+0 g
+(    )59.5 482.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mayo)s
+F0 sf
+0 g
+(    )59.5 472.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x6)s
+0 g
+(    )59.5 462.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(junio)s
+F0 sf
+0 g
+(    )59.5 452.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x7)s
+0 g
+(    )59.5 442.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(julio)s
+F0 sf
+0 g
+(    )59.5 432.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x8)s
+0 g
+(    )59.5 422.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(agosto)s
+F0 sf
+0 g
+(    )59.5 412.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x9)s
+0 g
+(    )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(septiembre)s
+F0 sf
+0 g
+(    )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x10)s
+0 g
+(    )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(octubre)s
+F0 sf
+0 g
+(    )59.5 372.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x11)s
+0 g
+(    )59.5 362.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(beq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(noviembre)s
+F0 sf
+0 g
+(    )59.5 352.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(diciembre)s
+F0 sf
+0.376 0 0.376 r
+(imprimir)59.5 332.4 ms
+0 g
+(:)s
+(    )59.5 322.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( ,)s
+F1 sf
+0.498 0.125 0.498 r
+(x)s
+F0 sf
+0 g
+(+)s
+(    )59.5 312.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbeq)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(regresar)s
+F0 sf
+0 g
+(    )59.5 302.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 292.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bra)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprimir)s
+F0 sf
+0.376 0 0.376 r
+(imprime_iter)59.5 262.4 ms
+0 g
+(:)s
+(    )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0x80)s
+0 g
+(    )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )s
+(    )59.5 232.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(imprime_dia)59.5 212.4 ms
+0 g
+(:)s
+(    )59.5 202.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(dia)s
+F0 sf
+0 g
+(    )59.5 192.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 182.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0 g
+( )s
+0.376 0 0.376 r
+(imprime_mes)59.5 162.4 ms
+0 g
+(:)s
+(    )59.5 152.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mes)s
+F0 sf
+0 g
+(    )59.5 142.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 132.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(imprime_ano)59.5 112.4 ms
+0 g
+(:)s
+(    )59.5 102.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(    )59.5 92.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 82.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_19)s
+F0 sf
+0 g
+(    )59.5 72.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 62.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 52.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+re sp
+%%PageTrailer
+%%Page: 6 6
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 6)59.5 792.4 ms
+F0 sf
+(    )59.5 772.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 762.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 752.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(imprime_19)59.5 732.4 ms
+0 g
+(:)s
+(    )59.5 722.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x19)s
+0 g
+(    )59.5 712.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 702.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldd)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(aNo)s
+F0 sf
+0 g
+(    )59.5 692.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(exg)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(a)s
+F0 sf
+0 g
+(,)s
+F1 sf
+0.498 0.125 0.498 r
+(b)s
+F0 sf
+0 g
+(    )59.5 682.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_nums)s
+F0 sf
+0 g
+(    )59.5 672.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0 g
+(    )59.5 662.4 ms
+0.376 0 0.376 r
+(imprime_salto)59.5 652.4 ms
+0 g
+(:)s
+(    )59.5 642.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#'\\n)s
+0 g
+(    )59.5 632.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 622.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(presentar)59.5 602.4 ms
+0 g
+(:)s
+(    )59.5 592.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_iter)s
+F0 sf
+0 g
+(    )59.5 582.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x3A)s
+0 g
+(    )59.5 572.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 562.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 552.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 542.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_dia)s
+F0 sf
+0 g
+(    )59.5 532.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 522.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 512.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_de)s
+F0 sf
+0 g
+(    )59.5 502.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lbsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(mostrarMes)s
+F0 sf
+0 g
+(    )59.5 492.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_de)s
+F0 sf
+0 g
+(    )59.5 482.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(    )59.5 472.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 462.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_ano)s
+F0 sf
+0 g
+(    )59.5 452.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(bsr)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(imprime_salto)s
+F0 sf
+0 g
+(    )59.5 442.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(imprime_de)59.5 422.4 ms
+0 g
+(:)s
+(    )59.5 412.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#100)s
+0 g
+(    )59.5 402.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#101)s
+0 g
+(    )59.5 392.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 382.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(stb)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+(    )59.5 372.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0.376 0 0.376 r
+(imprime_nums)59.5 352.4 ms
+0 g
+(:)s
+(        )59.5 342.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(ldb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0)s
+0 g
+(        )59.5 332.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x80)s
+0 g
+(        )59.5 322.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(Menor80)s
+F0 sf
+0 g
+(        )59.5 312.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(incb)s
+F0 sf
+0 g
+(        )59.5 302.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x80)s
+0.376 0 0.376 r
+(Menor80)59.5 292.4 ms
+0 g
+(:)s
+(        )59.5 282.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lslb)s
+F0 sf
+0 g
+(        )59.5 272.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x40)s
+0 g
+(        )59.5 262.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(Menor40)s
+F0 sf
+0 g
+(        )59.5 252.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(incb)s
+F0 sf
+0 g
+(        )59.5 242.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x40)s
+0.376 0 0.376 r
+(Menor40)59.5 232.4 ms
+0 g
+(:)s
+(        )59.5 222.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lslb)s
+F0 sf
+0 g
+(        )59.5 212.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0 g
+(        )59.5 202.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(Menor20)s
+F0 sf
+0 g
+(        )59.5 192.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(incb)s
+F0 sf
+0 g
+(        )59.5 182.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x20)s
+0.376 0 0.376 r
+(Menor20)59.5 172.4 ms
+0 g
+(:)s
+(        )59.5 162.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(lslb)s
+F0 sf
+0 g
+(        )59.5 152.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(cmpa)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x10)s
+0 g
+(        )59.5 142.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(blo)s
+F0 sf
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(Menor10)s
+F0 sf
+0 g
+(        )59.5 132.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(incb)s
+F0 sf
+0 g
+(        )59.5 122.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(suba)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#0x10)s
+0.376 0 0.376 r
+(Menor10)59.5 112.4 ms
+0 g
+(:)s
+(        )59.5 102.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(addb)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#'0)s
+0 g
+(        )59.5 92.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(adda)s
+F0 sf
+0 g
+( )s
+0.376 0 0 r
+(#'0)s
+0.376 0 0.376 r
+(imprime_cifra_b)59.5 72.4 ms
+0 g
+(:)s
+(        )59.5 62.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(stb)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+( )s
+re sp
+%%PageTrailer
+%%Page: 7 7
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(recumples.asm                                                                 Page 7)59.5 792.4 ms
+F0 sf
+0.376 0 0.376 r
+(imprime_cifra_a)59.5 772.4 ms
+0 g
+(:)s
+(        )59.5 762.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF00)s
+0 g
+( )s
+(        )59.5 752.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(rts)s
+F0 sf
+0 g
+(    )59.5 742.4 ms
+0.376 0 0.376 r
+(acabar)59.5 732.4 ms
+0 g
+(: )s
+(    )59.5 722.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(clra)s
+F0 sf
+0 g
+(    )59.5 712.4 ms
+F1 sf
+0.498 0.125 0.498 r
+(sta)s
+F0 sf
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFF01)s
+0 g
+(    )59.5 692.4 ms
+0.376 0 0 r
+(.org)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0xFFFE)s
+0 g
+(    )59.5 682.4 ms
+0.376 0 0 r
+(.word)s
+0 g
+( )s
+F1 sf
+0.498 0.125 0.498 r
+(programa)s
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 7
+%%EOF
+

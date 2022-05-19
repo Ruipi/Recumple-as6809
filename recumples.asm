@@ -1,3 +1,14 @@
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ; RECUMPLEAÑOS                                                     ;
+  ;     Julia Ruiperez de Brito 71080834R                            ;
+  ;                                                                  ;
+  ;     y                                                            ;
+  ;                                                                  ;
+  ;     Daniel Rodriguez Sanchez 70963270J                           ;
+  ;                                                                  ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
     .module recumple
 
     .area PROG (ABS)
@@ -5,10 +16,10 @@
     .org 0x100
 	.globl programa
 
-aNo:            .word 0x2000 	; Año de nacimiento (BCD) 
-mes:	    	.word 0x9	; Mes de nacimiento (BCD) 
-dia:	        .word 0x2 	; Dia de nacimiento (BCD)
-Ncumples:     	.byte 20	; Numero de Recumples a calcular
+aNo:            .word 0x1976 	; Año de nacimiento (BCD) 
+mes:	    	.word 0x7		; Mes de nacimiento (BCD) 
+dia:	        .word 0x27 		; Dia de nacimiento (BCD)
+Ncumples:     	.byte 25		; Numero de Recumples a calcular
 enero_str:      .asciz " enero "
 febrero_str:    .asciz " febrero "
 marzo_str:      .asciz " marzo "
@@ -31,9 +42,9 @@ programa:
 	lds #0xF000
 	ldu #0xF100
 	lda #0x0
-	sta 0x80
+	sta 0x80	;Una para imprimir la iteracion en BCD
 	lda #0
-	sta 0x81
+	sta 0x81	;Otra para comparar la iteracion con Ncumples
 	bra poner_pila
 	
 sacar_pila:
@@ -135,6 +146,9 @@ comprobar_mes:
 	adca #0x0
 	lbsr daa
 	std aNo,pcr
+	lda mes,pcr
+	cmpa #0x12
+	bgt comprobar_mes
 	rts
 
 rest_30_sum_mes:

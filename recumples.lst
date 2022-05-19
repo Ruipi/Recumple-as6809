@@ -1,0 +1,558 @@
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 1
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+                              1   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                              2   ; RECUMPLEAÑOS                                                     ;
+                              3   ;     Julia Ruiperez de Brito 71080834R                            ;
+                              4   ;                                                                  ;
+                              5   ;     y                                                            ;
+                              6   ;                                                                  ;
+                              7   ;     Daniel                                                       ;
+                              8   ;                                                                  ;
+                              9   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             10 
+                             11 
+                             12     .module recumple
+                             13 
+                             14     .area PROG (ABS)
+                             15 
+   0100                      16     .org 0x100
+                             17 	.globl programa
+                             18 
+   0100 19 76                19 aNo:            .word 0x1976 	; Año de nacimiento (BCD) 
+   0102 00 07                20 mes:	    	.word 0x7	; Mes de nacimiento (BCD) 
+   0104 00 16                21 dia:	        .word 0x16 	; Dia de nacimiento (BCD)
+   0106 19                   22 Ncumples:     	.byte 25	; Numero de Recumples a calcular
+   0107 20 65 6E 65 72 6F    23 enero_str:      .asciz " enero "
+        20 00
+   010F 20 66 65 62 72 65    24 febrero_str:    .asciz " febrero "
+        72 6F 20 00
+   0119 20 6D 61 72 7A 6F    25 marzo_str:      .asciz " marzo "
+        20 00
+   0121 20 61 62 72 69 6C    26 abril_str:      .asciz " abril "
+        20 00
+   0129 20 6D 61 79 6F 20    27 mayo_str:       .asciz " mayo "
+        00
+   0130 20 6A 75 6E 69 6F    28 junio_str:      .asciz " junio "
+        20 00
+   0138 20 6A 75 6C 69 6F    29 julio_str:      .asciz " julio "
+        20 00
+   0140 20 61 67 6F 73 74    30 agosto_str:     .asciz " agosto "
+        6F 20 00
+   0149 20 73 65 70 74 69    31 septiembre_str: .asciz " septiembre "
+        65 6D 62 72 65 20
+        00
+   0156 20 6F 63 74 75 62    32 octubre_str:    .asciz " octubre "
+        72 65 20 00
+   0160 20 6E 6F 76 69 65    33 noviembre_str:  .asciz " noviembre "
+        6D 62 72 65 20 00
+   016C 20 64 69 63 69 65    34 diciembre_str:  .asciz " diciembre "
+        6D 62 72 65 20 00
+                             35 
+                             36 
+   0178                      37 programa:
+   0178 A6 8C 8A      [ 5]   38 	lda dia+1,pcr
+   017B A7 8C 86      [ 5]   39     sta dia,pcr
+   017E A6 8C 82      [ 5]   40 	lda mes+1,pcr
+   0181 A7 8D FF 7D   [ 9]   41 	sta mes,pcr
+   0185 10 CE F0 00   [ 4]   42 	lds #0xF000
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 2
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   0189 CE F1 00      [ 3]   43 	ldu #0xF100
+   018C 86 00         [ 2]   44 	lda #0x0
+   018E 97 80         [ 4]   45 	sta 0x80
+   0190 86 00         [ 2]   46 	lda #0
+   0192 97 81         [ 4]   47 	sta 0x81
+   0194 20 14         [ 3]   48 	bra poner_pila
+                             49 	
+   0196                      50 sacar_pila:
+   0196 37 04         [ 6]   51 	pulu b
+   0198 37 02         [ 6]   52 	pulu a
+   019A ED 8D FF 62   [10]   53 	std aNo,pcr
+   019E 37 02         [ 6]   54 	pulu a
+   01A0 A7 8D FF 5E   [ 9]   55 	sta mes,pcr
+   01A4 37 02         [ 6]   56 	pulu a
+   01A6 A7 8D FF 5A   [ 9]   57 	sta dia,pcr
+                             58 
+   01AA                      59 poner_pila:
+   01AA A6 8D FF 56   [ 9]   60 	lda dia,pcr
+   01AE 36 02         [ 6]   61 	pshu a
+   01B0 A6 8D FF 4E   [ 9]   62 	lda mes,pcr
+   01B4 36 02         [ 6]   63 	pshu a
+   01B6 EC 8D FF 46   [10]   64 	ldd aNo,pcr
+   01BA 36 02         [ 6]   65 	pshu a
+   01BC 36 04         [ 6]   66 	pshu b
+                             67 
+   01BE                      68 sumar_anio:
+   01BE EC 8D FF 3E   [10]   69 	ldd aNo,pcr
+   01C2 1E 89         [ 8]   70 	exg a,b
+   01C4 9B 80         [ 4]   71 	adda 0x80
+   01C6 17 01 26      [ 9]   72 	lbsr daa
+   01C9 1E 89         [ 8]   73 	exg a,b
+   01CB 89 00         [ 2]   74 	adca #0x0
+   01CD 17 01 1F      [ 9]   75 	lbsr daa
+   01D0 ED 8D FF 2C   [10]   76 	std aNo,pcr
+                             77 
+   01D4                      78 sumar_mes:
+   01D4 A6 8D FF 2A   [ 9]   79 	lda mes,pcr
+   01D8 9B 80         [ 4]   80 	adda 0x80
+   01DA 17 01 12      [ 9]   81 	lbsr daa
+   01DD A7 8D FF 21   [ 9]   82 	sta mes,pcr
+   01E1 8D 62         [ 7]   83 	bsr comprobar_mes
+                             84 
+   01E3                      85 suma_dia:
+   01E3 A6 8D FF 1D   [ 9]   86 	lda dia,pcr
+   01E7 9B 80         [ 4]   87 	adda 0x80
+   01E9 17 01 03      [ 9]   88 	lbsr daa
+   01EC A7 8D FF 14   [ 9]   89 	sta dia,pcr
+                             90 
+   01F0                      91 comprobar_dia:
+   01F0 A6 8D FF 10   [ 9]   92 	lda dia,pcr
+   01F4 E6 8D FF 0A   [ 9]   93 	ldb mes,pcr
+   01F8 81 28         [ 2]   94 	cmpa #0x28		;COMPARA EL DIA CON 28
+   01FA 23 38         [ 3]   95 	bls presentame_esta 
+   01FC C1 02         [ 2]   96 	cmpb #0x02
+   01FE 10 27 00 99   [ 6]   97 	lbeq comprobar_bisiesto
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 3
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   0202 81 30         [ 2]   98 	cmpa #0x30		;COMPARA EL DIA CON 30
+   0204 23 2E         [ 3]   99 	bls presentame_esta 
+   0206 C1 04         [ 2]  100 	cmpb #0x04
+   0208 27 6F         [ 3]  101 	beq rest_30_sum_mes
+   020A C1 06         [ 2]  102 	cmpb #0x06
+   020C 27 6B         [ 3]  103 	beq rest_30_sum_mes
+   020E C1 09         [ 2]  104 	cmpb #0x09
+   0210 27 67         [ 3]  105 	beq rest_30_sum_mes
+   0212 C1 11         [ 2]  106 	cmpb #0x11
+   0214 27 63         [ 3]  107 	beq rest_30_sum_mes
+   0216 81 31         [ 2]  108 	cmpa #0x31		;COMPARA EL DIA COM 31
+   0218 23 1A         [ 3]  109 	bls presentame_esta 
+   021A 8B 09         [ 2]  110 	adda #0x09
+   021C 17 00 D0      [ 9]  111 	lbsr daa
+   021F 80 40         [ 2]  112 	suba #0x40
+   0221 A7 8D FE DF   [ 9]  113 	sta dia,pcr
+   0225 A6 8D FE D9   [ 9]  114 	lda mes,pcr
+   0229 8B 01         [ 2]  115 	adda #0x01
+   022B 17 00 C1      [ 9]  116 	lbsr daa
+   022E A7 8D FE D0   [ 9]  117 	sta mes,pcr
+   0232 8D 11         [ 7]  118 	bsr comprobar_mes
+                            119 
+   0234                     120 presentame_esta:
+   0234 17 01 AA      [ 9]  121 	lbsr presentar
+                            122 
+   0237                     123 compara_iter:
+   0237 8D 54         [ 7]  124 	bsr sumar_iteracion
+   0239 96 81         [ 4]  125 	lda 0x81
+   023B B1 01 06      [ 5]  126 	cmpa Ncumples
+   023E 10 23 FF 54   [ 6]  127 	lbls sacar_pila 
+   0242 16 01 F7      [ 5]  128 	lbra acabar
+                            129 
+                            130 
+                            131 ;;;;;;;;;;;;;;;;;;SUBRUTINAS DE CALCULO;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            132 
+   0245                     133 comprobar_mes:
+   0245 A6 8D FE B9   [ 9]  134 	lda mes,pcr
+   0249 81 12         [ 2]  135 	cmpa #0x12
+   024B 10 23 00 9F   [ 6]  136 	lbls regresar 
+   024F 8B 08         [ 2]  137 	adda #0x08
+   0251 17 00 9B      [ 9]  138 	lbsr daa
+   0254 80 20         [ 2]  139 	suba #0x20
+   0256 A7 8D FE A8   [ 9]  140 	sta mes,pcr
+   025A EC 8D FE A2   [10]  141 	ldd aNo,pcr
+   025E 1E 89         [ 8]  142 	exg a,b
+   0260 8B 01         [ 2]  143 	adda #0x1
+   0262 17 00 8A      [ 9]  144 	lbsr daa
+   0265 1E 89         [ 8]  145 	exg a,b
+   0267 89 00         [ 2]  146 	adca #0x0
+   0269 17 00 83      [ 9]  147 	lbsr daa
+   026C ED 8D FE 90   [10]  148 	std aNo,pcr
+   0270 A6 8D FE 8E   [ 9]  149 	lda mes,pcr
+   0274 81 12         [ 2]  150 	cmpa #0x12
+   0276 2E CD         [ 3]  151 	bgt comprobar_mes
+   0278 39            [ 5]  152 	rts
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 4
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+                            153 
+   0279                     154 rest_30_sum_mes:
+   0279 80 30         [ 2]  155 	suba #0x30
+   027B A7 8D FE 85   [ 9]  156 	sta dia,pcr
+   027F A6 8D FE 7F   [ 9]  157 	lda mes,pcr
+   0283 8B 01         [ 2]  158 	adda #0x01
+   0285 8D 68         [ 7]  159 	bsr daa
+   0287 A7 8D FE 77   [ 9]  160 	sta mes,pcr
+   028B 20 A7         [ 3]  161 	bra presentame_esta
+                            162 	
+   028D                     163 sumar_iteracion:
+   028D 96 80         [ 4]  164 	lda 0x80
+   028F 8B 01         [ 2]  165 	adda #0x01 
+   0291 8D 5C         [ 7]  166 	bsr daa
+   0293 97 80         [ 4]  167 	sta 0x80
+   0295 96 81         [ 4]  168 	lda 0x81
+   0297 4C            [ 2]  169 	inca
+   0298 97 81         [ 4]  170 	sta 0x81
+   029A 39            [ 5]  171 	rts
+                            172 
+   029B                     173 comprobar_bisiesto:
+   029B EC 8D FE 61   [10]  174 	ldd aNo,pcr
+   029F 1F 98         [ 6]  175 	tfr b,a
+   02A1 84 01         [ 2]  176 	anda #1
+   02A3 81 00         [ 2]  177 	cmpa #0x00
+   02A5 26 2A         [ 3]  178 	bne no_bisiesto
+   02A7 1F 98         [ 6]  179 	tfr b,a
+   02A9 44            [ 2]  180 	lsra
+   02AA 84 01         [ 2]  181 	anda #1
+   02AC 81 00         [ 2]  182 	cmpa #0x00
+   02AE 26 21         [ 3]  183 	bne no_bisiesto
+   02B0 A6 8D FE 50   [ 9]  184 	lda dia,pcr
+   02B4 81 29         [ 2]  185 	cmpa #0x29	 
+   02B6 10 23 00 34   [ 6]  186 	lbls regresar 
+   02BA 8B 01         [ 2]  187 	adda #0x01	
+   02BC 8D 31         [ 7]  188 	bsr daa
+   02BE 80 30         [ 2]  189 	suba #0x30
+   02C0 A7 8D FE 40   [ 9]  190 	sta dia,pcr
+   02C4 A6 8D FE 3A   [ 9]  191 	lda mes,pcr
+   02C8 8B 01         [ 2]  192 	adda #0x01
+   02CA 8D 23         [ 7]  193 	bsr daa
+   02CC A7 8D FE 32   [ 9]  194 	sta mes,pcr
+   02D0 39            [ 5]  195 	rts
+                            196 	
+   02D1                     197 no_bisiesto:
+   02D1 A6 8D FE 2F   [ 9]  198 	lda dia,pcr
+   02D5 8B 02         [ 2]  199 	adda #0x02
+   02D7 8D 16         [ 7]  200 	bsr daa
+   02D9 80 30         [ 2]  201 	suba #0x30
+   02DB A7 8D FE 25   [ 9]  202 	sta dia,pcr
+   02DF A6 8D FE 1F   [ 9]  203 	lda mes,pcr	
+   02E3 8B 01         [ 2]  204 	adda #0x01
+   02E5 8D 08         [ 7]  205 	bsr daa
+   02E7 A7 8D FE 17   [ 9]  206 	sta mes,pcr
+   02EB 16 FF 46      [ 5]  207 	lbra presentame_esta
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 5
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+                            208 
+   02EE                     209 regresar:
+   02EE 39            [ 5]  210   	rts
+                            211 
+                            212   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            213   ; daa                                                              ;
+                            214   ;     simula la instrucciOn daa del ensamblador                    ;
+                            215   ;     se debe usar detAs de la instrucciOn adda para sumas BCD     ;
+                            216   ;                                                                  ;
+                            217   ;   Entrada: A-resultado de la suma    CC-flags de la suma         ;
+                            218   ;   Salida:  A-resultado ajustado BCD  CC-flags ajustados BCD      ;
+                            219   ;   Registros afectados: ninguno                                   ;
+                            220   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            221 
+   02EF                     222 daa:
+   02EF 34 03         [ 7]  223   pshs a,cc
+   02F1 A6 E4         [ 4]  224   lda ,s             ; A=CC
+   02F3 6F E2         [ 8]  225   clr ,-s            ; S-> 00 CC A
+   02F5 84 20         [ 2]  226   anda #0x20         ; bit H de CC
+   02F7 26 08         [ 3]  227   bne daa_ajusteBajo ; si H=1, hay que ajustar la cifra baja
+   02F9 A6 62         [ 5]  228   lda 2,s            ; si H=0 y la cifra baja>9, ajustarla
+   02FB 84 0F         [ 2]  229   anda #0xF
+   02FD 81 0A         [ 2]  230   cmpa #0xA
+   02FF 25 04         [ 3]  231   blo daa_sinAjusteBajo
+                            232 
+   0301                     233 daa_ajusteBajo:
+   0301 86 06         [ 2]  234   lda #6
+   0303 A7 E4         [ 4]  235   sta ,s
+                            236 
+   0305                     237 daa_sinAjusteBajo:
+   0305 86 01         [ 2]  238   lda #1
+   0307 A4 61         [ 5]  239   anda 1,s
+   0309 26 06         [ 3]  240   bne daa_ajusteAlto    ; si flag C=1, hay que ajustar la alta
+   030B A6 62         [ 5]  241   lda 2,s               ; o si C=0 y resultado>0x9A
+   030D 81 9A         [ 2]  242   cmpa #0x9A
+   030F 25 06         [ 3]  243   blo daa_sinAjusteAlto
+                            244 
+   0311                     245 daa_ajusteAlto:
+   0311 A6 E4         [ 4]  246   lda ,s
+   0313 8A 60         [ 2]  247   ora #0x60
+   0315 A7 E4         [ 4]  248   sta ,s
+                            249 
+   0317                     250 daa_sinAjusteAlto:
+   0317 A6 E0         [ 6]  251   lda  ,s+   ; aNadimos el ajuste a A
+   0319 AB 61         [ 5]  252   adda 1,s
+   031B A7 61         [ 5]  253   sta  1,s
+   031D 1F A8         [ 6]  254   tfr cc,a   ; el flag C es el or del C original y el de la suma
+   031F AA E4         [ 4]  255   ora ,s
+   0321 A7 E4         [ 4]  256   sta ,s
+   0323 35 03         [ 7]  257   puls cc,a 
+   0325 4D            [ 2]  258   tsta       ; ajustamos los flags Z y N del resultado
+   0326 39            [ 5]  259   rts
+                            260 
+                            261 
+                            262 ;;;;;;;;;;;;;;;;;;;;;;;;;;IMPRIME;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 6
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   0327                     263 enero:
+   0327 30 8D FD DC   [ 9]  264 	leax enero_str,pcr
+   032B 20 73         [ 3]  265 	bra imprimir
+                            266 
+   032D                     267 febrero:
+   032D 30 8D FD DE   [ 9]  268 	leax febrero_str,pcr
+   0331 20 6D         [ 3]  269 	bra imprimir
+                            270 
+   0333                     271 marzo:
+   0333 30 8D FD E2   [ 9]  272 	leax marzo_str,pcr
+   0337 20 67         [ 3]  273 	bra imprimir
+                            274 
+   0339                     275 abril:
+   0339 30 8D FD E4   [ 9]  276 	leax abril_str,pcr
+   033D 20 61         [ 3]  277 	bra imprimir
+                            278 
+   033F                     279 mayo:
+   033F 30 8D FD E6   [ 9]  280 	leax mayo_str,pcr
+   0343 20 5B         [ 3]  281 	bra imprimir
+                            282 
+   0345                     283 junio:
+   0345 30 8D FD E7   [ 9]  284 	leax junio_str,pcr
+   0349 20 55         [ 3]  285 	bra imprimir
+                            286 
+   034B                     287 julio:
+   034B 30 8D FD E9   [ 9]  288 	leax julio_str,pcr
+   034F 20 4F         [ 3]  289 	bra imprimir
+                            290 
+   0351                     291 agosto:
+   0351 30 8D FD EB   [ 9]  292 	leax agosto_str,pcr
+   0355 20 49         [ 3]  293 	bra imprimir
+                            294 
+   0357                     295 septiembre:
+   0357 30 8D FD EE   [ 9]  296 	leax septiembre_str,pcr
+   035B 20 43         [ 3]  297 	bra imprimir
+                            298 
+   035D                     299 octubre:
+   035D 30 8D FD F5   [ 9]  300 	leax octubre_str,pcr
+   0361 20 3D         [ 3]  301 	bra imprimir
+                            302 
+   0363                     303 noviembre:
+   0363 30 8D FD F9   [ 9]  304 	leax noviembre_str,pcr
+   0367 20 37         [ 3]  305 	bra imprimir
+                            306 
+   0369                     307 diciembre:
+   0369 30 8D FD FF   [ 9]  308 	leax diciembre_str,pcr
+   036D 20 31         [ 3]  309 	bra imprimir
+                            310 
+   036F                     311 mostrarMes:
+   036F F6 01 02      [ 5]  312 	ldb mes
+   0372 C1 01         [ 2]  313 	cmpb #0x1
+   0374 27 B1         [ 3]  314 	beq enero
+   0376 C1 02         [ 2]  315 	cmpb #0x2
+   0378 27 B3         [ 3]  316 	beq febrero
+   037A C1 03         [ 2]  317 	cmpb #0x3
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 7
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   037C 27 B5         [ 3]  318 	beq marzo
+   037E C1 04         [ 2]  319 	cmpb #0x4
+   0380 27 B7         [ 3]  320 	beq abril
+   0382 C1 05         [ 2]  321 	cmpb #0x5
+   0384 27 B9         [ 3]  322 	beq mayo
+   0386 C1 06         [ 2]  323 	cmpb #0x6
+   0388 27 BB         [ 3]  324 	beq junio
+   038A C1 07         [ 2]  325 	cmpb #0x7
+   038C 27 BD         [ 3]  326 	beq julio
+   038E C1 08         [ 2]  327 	cmpb #0x8
+   0390 27 BF         [ 3]  328 	beq agosto
+   0392 C1 09         [ 2]  329 	cmpb #0x9
+   0394 27 C1         [ 3]  330 	beq septiembre
+   0396 C1 10         [ 2]  331 	cmpb #0x10
+   0398 27 C3         [ 3]  332 	beq octubre
+   039A C1 11         [ 2]  333 	cmpb #0x11
+   039C 27 C5         [ 3]  334 	beq noviembre
+   039E 20 C9         [ 3]  335 	bra diciembre
+                            336 
+   03A0                     337 imprimir:
+   03A0 A6 80         [ 6]  338 	lda ,x+
+   03A2 10 27 FF 48   [ 6]  339 	lbeq regresar
+   03A6 B7 FF 00      [ 5]  340 	sta 0xFF00
+   03A9 20 F5         [ 3]  341 	bra imprimir
+                            342 
+                            343 
+   03AB                     344 imprime_iter:
+   03AB 96 80         [ 4]  345 	lda 0x80
+   03AD 8D 61         [ 7]  346 	bsr imprime_nums	
+   03AF 39            [ 5]  347 	rts
+                            348 
+   03B0                     349 imprime_dia:
+   03B0 B6 01 04      [ 5]  350 	lda dia
+   03B3 8D 5B         [ 7]  351 	bsr imprime_nums
+   03B5 39            [ 5]  352 	rts 
+                            353 
+   03B6                     354 imprime_mes:
+   03B6 B6 01 02      [ 5]  355 	lda mes
+   03B9 8D 55         [ 7]  356 	bsr imprime_nums
+   03BB 39            [ 5]  357 	rts
+                            358 
+   03BC                     359 imprime_ano:
+   03BC FC 01 00      [ 6]  360 	ldd aNo
+   03BF 81 20         [ 2]  361 	cmpa #0x20
+   03C1 25 0C         [ 3]  362 	blo imprime_19
+   03C3 86 20         [ 2]  363 	lda #0x20
+   03C5 8D 49         [ 7]  364 	bsr imprime_nums
+   03C7 FC 01 00      [ 6]  365 	ldd aNo
+   03CA 1E 89         [ 8]  366 	exg a,b
+   03CC 8D 42         [ 7]  367 	bsr imprime_nums
+   03CE 39            [ 5]  368 	rts
+                            369 
+   03CF                     370 imprime_19:
+   03CF 86 19         [ 2]  371 	lda #0x19
+   03D1 8D 3D         [ 7]  372 	bsr imprime_nums
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 8
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   03D3 FC 01 00      [ 6]  373 	ldd aNo
+   03D6 1E 89         [ 8]  374 	exg a,b
+   03D8 8D 36         [ 7]  375 	bsr imprime_nums
+   03DA 39            [ 5]  376 	rts
+                            377 	
+   03DB                     378 imprime_salto:
+   03DB 86 0A         [ 2]  379 	lda #'\n
+   03DD B7 FF 00      [ 5]  380 	sta 0xFF00
+   03E0 39            [ 5]  381 	rts
+                            382 
+   03E1                     383 presentar:
+   03E1 8D C8         [ 7]  384 	bsr imprime_iter
+   03E3 86 3A         [ 2]  385 	lda #0x3A
+   03E5 B7 FF 00      [ 5]  386 	sta 0xFF00
+   03E8 86 20         [ 2]  387 	lda #0x20
+   03EA B7 FF 00      [ 5]  388 	sta 0xFF00
+   03ED 8D C1         [ 7]  389 	bsr imprime_dia
+   03EF 86 20         [ 2]  390 	lda #0x20
+   03F1 B7 FF 00      [ 5]  391 	sta 0xFF00
+   03F4 8D 0F         [ 7]  392 	bsr imprime_de
+   03F6 17 FF 76      [ 9]  393 	lbsr mostrarMes
+   03F9 8D 0A         [ 7]  394 	bsr imprime_de
+   03FB 86 20         [ 2]  395 	lda #0x20
+   03FD B7 FF 00      [ 5]  396 	sta 0xFF00
+   0400 8D BA         [ 7]  397 	bsr imprime_ano
+   0402 8D D7         [ 7]  398 	bsr imprime_salto
+   0404 39            [ 5]  399 	rts
+                            400 
+   0405                     401 imprime_de:
+   0405 86 64         [ 2]  402 	lda #100
+   0407 C6 65         [ 2]  403 	ldb #101
+   0409 B7 FF 00      [ 5]  404 	sta 0xFF00
+   040C F7 FF 00      [ 5]  405 	stb 0xFF00
+   040F 39            [ 5]  406 	rts
+                            407 
+   0410                     408 imprime_nums:
+   0410 C6 00         [ 2]  409 		ldb #0
+   0412 81 80         [ 2]  410         cmpa #0x80
+   0414 25 03         [ 3]  411         blo Menor80
+   0416 5C            [ 2]  412         incb
+   0417 80 80         [ 2]  413         suba #0x80
+   0419                     414 Menor80:
+   0419 58            [ 2]  415 		lslb
+   041A 81 40         [ 2]  416         cmpa #0x40
+   041C 25 03         [ 3]  417         blo Menor40
+   041E 5C            [ 2]  418         incb
+   041F 80 40         [ 2]  419         suba #0x40
+   0421                     420 Menor40:
+   0421 58            [ 2]  421 		lslb
+   0422 81 20         [ 2]  422         cmpa #0x20
+   0424 25 03         [ 3]  423         blo Menor20
+   0426 5C            [ 2]  424         incb
+   0427 80 20         [ 2]  425         suba #0x20
+   0429                     426 Menor20:
+   0429 58            [ 2]  427 		lslb
+ASxxxx Assembler V05.40  (Motorola 6809)                                Page 9
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+
+
+   042A 81 10         [ 2]  428         cmpa #0x10
+   042C 25 03         [ 3]  429         blo Menor10
+   042E 5C            [ 2]  430         incb
+   042F 80 10         [ 2]  431         suba #0x10
+   0431                     432 Menor10:
+   0431 CB 30         [ 2]  433 		addb #'0
+   0433 8B 30         [ 2]  434         adda #'0
+                            435 
+   0435                     436 imprime_cifra_b:
+   0435 F7 FF 00      [ 5]  437         stb 0xFF00 
+                            438 
+   0438                     439 imprime_cifra_a:
+   0438 B7 FF 00      [ 5]  440         sta 0xFF00 
+   043B 39            [ 5]  441 		rts
+                            442 	
+   043C                     443 acabar: 
+   043C 4F            [ 2]  444 	clra
+   043D B7 FF 01      [ 5]  445 	sta 0xFF01
+                            446 
+   FFFE                     447 	.org 0xFFFE
+   FFFE 01 78               448 	.word programa
+ASxxxx Assembler V05.40  (Motorola 6809)                               Page 10
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+Symbol Table
+
+    .__.$$$.       =   2710 L   |     .__.ABS.       =   0000 G
+    .__.CPU.       =   0000 L   |     .__.H$L.       =   0001 L
+  2 Menor10            0431 R   |   2 Menor20            0429 R
+  2 Menor40            0421 R   |   2 Menor80            0419 R
+  2 Ncumples           0106 R   |   2 aNo                0100 R
+  2 abril              0339 R   |   2 abril_str          0121 R
+  2 acabar             043C R   |   2 agosto             0351 R
+  2 agosto_str         0140 R   |   2 compara_iter       0237 R
+  2 comprobar_bisi     029B R   |   2 comprobar_dia      01F0 R
+  2 comprobar_mes      0245 R   |   2 daa                02EF R
+  2 daa_ajusteAlto     0311 R   |   2 daa_ajusteBajo     0301 R
+  2 daa_sinAjusteA     0317 R   |   2 daa_sinAjusteB     0305 R
+  2 dia                0104 R   |   2 diciembre          0369 R
+  2 diciembre_str      016C R   |   2 enero              0327 R
+  2 enero_str          0107 R   |   2 febrero            032D R
+  2 febrero_str        010F R   |   2 imprime_19         03CF R
+  2 imprime_ano        03BC R   |   2 imprime_cifra_     0438 R
+  2 imprime_cifra_     0435 R   |   2 imprime_de         0405 R
+  2 imprime_dia        03B0 R   |   2 imprime_iter       03AB R
+  2 imprime_mes        03B6 R   |   2 imprime_nums       0410 R
+  2 imprime_salto      03DB R   |   2 imprimir           03A0 R
+  2 julio              034B R   |   2 julio_str          0138 R
+  2 junio              0345 R   |   2 junio_str          0130 R
+  2 marzo              0333 R   |   2 marzo_str          0119 R
+  2 mayo               033F R   |   2 mayo_str           0129 R
+  2 mes                0102 R   |   2 mostrarMes         036F R
+  2 no_bisiesto        02D1 R   |   2 noviembre          0363 R
+  2 noviembre_str      0160 R   |   2 octubre            035D R
+  2 octubre_str        0156 R   |   2 poner_pila         01AA R
+  2 presentame_est     0234 R   |   2 presentar          03E1 R
+  2 programa           0178 GR  |   2 regresar           02EE R
+  2 rest_30_sum_me     0279 R   |   2 sacar_pila         0196 R
+  2 septiembre         0357 R   |   2 septiembre_str     0149 R
+  2 suma_dia           01E3 R   |   2 sumar_anio         01BE R
+  2 sumar_iteracio     028D R   |   2 sumar_mes          01D4 R
+
+ASxxxx Assembler V05.40  (Motorola 6809)                               Page 11
+Hexadecimal [16-Bits]                                 Thu May 19 13:40:00 2022
+
+Area Table
+
+[_CSEG]
+   0 _CODE            size    0   flags C080
+   2 PROG             size    0   flags  908
+[_DSEG]
+   1 _DATA            size    0   flags C0C0
+
